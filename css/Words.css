@@ -1,0 +1,147 @@
+.words-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--dl-space-space-tenunits);
+  }
+
+  .output {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 80px;
+    margin-bottom: var(--dl-space-space-tripleunit);
+    display: flex;
+    padding: var(--dl-space-space-unit);
+    align-self: center;
+    align-items: center;
+    border-color: var(--dl-color-primary-dark_blue);
+    border-style: solid;
+    border-width: 3px;
+  }
+
+  .output-word{
+    width: 70%;
+    min-height: 45px;
+    height: auto;
+    display: flex;
+    margin-left: 20px;
+    justify-content: center;
+    background-color: rgba(109, 138, 170, 0.21);
+  }
+
+  .box_for_objects{
+    flex:2;
+    min-height: 450px;
+    margin-top: var(--dl-space-space-tripleunit);
+    padding: var(--dl-space-space-tripleunit);
+    align-items: center;
+    border-color: var(--dl-color-primary-dark_blue);
+    border-style: solid;
+    border-width: 3px;
+  }
+
+  .objects {
+    min-height: 400px;
+    width: 100%;
+    /* border-color: var(--dl-color-primary-dark_blue);
+    border-style: solid;
+    border-width: 3px; */
+    position: relative;
+  }
+
+
+ p3 {
+    align-self: center;
+    font-style: normal;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .input_words {
+    flex:5;
+    margin-top: var(--dl-space-space-tripleunit);
+    margin-left: 50px;
+    border-color: var(--dl-color-primary-dark_blue);
+    border-style: solid;
+    border-width: 3px;
+    min-height: 450px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .textarea {
+    width: 55%;
+    height: 70px;
+    margin: var(--dl-space-space-fourunits);
+    font-size: 1.2em;
+    text-align: center;
+    border-width: 0px;
+    background-color: rgba(109, 138, 170, 0.15);
+    max-width: 60%;
+    min-width: 30%;
+    max-height: 200px;
+  }
+
+  .container_for_words {
+    flex: 0 0 auto;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    padding-top: var(--dl-space-space-fiveunits);
+    padding-bottom: var(--dl-space-space-fiveunits);
+    margin-right: var(--dl-space-space-fourunits);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: stretch;
+}
+
+  .words-button {
+    width: 90%;
+  }
+  
+  #parse_words{
+    flex: 0 0 auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .word{
+    width: 70%;
+    min-height: 45px;
+    height: auto;
+    display: flex;
+    margin-top: var(--dl-space-space-doubleunit);
+    justify-content: center;
+    background-color: rgba(109, 138, 170, 0.21);
+  }
+
+
+  @media(max-width: 767px) {
+
+    .words-container {
+      height: var(--dl-size-size-maxcontent);
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+      padding:10px;
+    }
+    .output {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    .box_for_objects {
+      width: 90%;
+    }
+    .input_words {
+      width: 90%;
+      margin:var(--dl-space-space-fiveunits) 0;
+    }
+  }

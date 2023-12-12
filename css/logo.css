@@ -1,0 +1,207 @@
+
+.logo{
+    position: relative;
+    width: 50px;
+    height: 50px; 
+    /* уменьшение в 4 раза */
+    margin-right: var(--dl-space-space-doubleunit);
+    }
+    
+    
+    .piece_of_roof1{
+    position:absolute;
+    width: 55%;
+    border-bottom: 3.75px solid #5D8CC4;
+    border-left: 4.75px solid transparent;
+    border-right: 3.25px solid transparent;
+    transform: rotate(220deg);
+    height: 60%;
+    left: 25%;
+    top: 18%;
+    
+    }
+    
+    .piece_of_roof2{
+    position:absolute;
+    width: 55%;
+    border-bottom: 3.75px solid #5D8CC4;
+    border-left: 2.25px solid transparent;
+    border-right: 4.5px solid transparent;
+    transform: rotate(140deg);
+    height: 60%;
+    left: 22%;
+    top: 18%;
+    
+    }
+    
+    .roof2_1{
+        position:absolute;
+        width: 10%;
+        border-bottom: 1.5px solid #5D8CC4;
+        border-left: 1px solid transparent;
+        border-right: 9.75px solid transparent;
+        transform: rotate(140deg);
+        left: calc(50% - 36%/2);
+        top: 28%;
+        }
+    .roof2_2{
+        position:absolute;
+        width: 30%;
+        border-bottom: 1.5px solid #5D8CC4;
+        border-left: 15px solid transparent;
+        border-right: 0.75px solid transparent;
+        transform: rotate(220deg);
+        left: calc(63.5% - 36%/2);
+        top: 31%;
+        }
+    
+    .tube{
+    position: absolute;
+    width: 8%;
+    height: 11%;
+    left: 20%;
+    top: 21.88%;
+    background: #5D8CC4;
+    }
+    .shadow_tube{
+    position: absolute;
+    width: 17%;
+    border-bottom: 1.5px solid #ffffff;
+    border-left: 1.75px solid transparent;
+    border-right: 1.5px solid transparent;
+    transform: rotate(90deg);
+    left: 13%;
+    top: 28%;
+    }
+    
+    .stars{
+    position: absolute;
+    width: 22%;
+    height: 24%;
+    left: 67%;
+    top: 5%;
+    }
+    
+    .windows{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    
+    width: 14%;
+    height: 14%;
+    left: 43%;
+    top: 31%;
+    }
+    
+    
+    .window{
+    width: 37%;
+    height: 37%;
+    background: #5D8CC4;
+    }
+    
+    .textFH1{
+    position: absolute;
+    width: 65%;
+    height: 26%;
+    left: calc(50% - 65%/2);
+    top: 47.1%;
+    
+    font-family:  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 62.5%;
+    line-height: 81%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.07em;
+    
+    color: #5D8CC4;
+    }
+    
+    
+    .textFH{
+    position: absolute;
+    width: 59%;
+    height: 45%;
+    left: calc(50% - 59%/2 + 0.5%);
+    top: 36%;
+    
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    font-size: 112.5%; /*Тоже надо менять*/
+    line-height: 27%;
+    /* 27% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.07em;
+    
+    color: #5D8CC4;
+    }
+    
+    
+    .lenta{
+    position: absolute;
+    width: 80%;
+    height: 8%;
+    left: calc(50% - 80%/2);
+    top: 80%;
+    
+    background: #5D8CC4;
+    }
+    .lenta:after {
+        content: '';
+        position: absolute;
+        left: -1%; bottom: 0; width: 0; height: 0;
+        border-left: 8.75px solid #ffffff;
+        border-top: 2.125px solid transparent;
+        border-bottom: 2.125px solid transparent;
+      }
+    
+    .lenta:before {
+        content: '';
+        position: absolute;
+        right: -1%;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-left: 8.75px solid #ffffff;
+        border-top: 2.125px solid transparent;
+        border-bottom: 2.125px solid transparent;
+        transform: rotate(180deg);
+      }
+    
+    .lenta2{
+    position: absolute;
+    width: 45%;
+    height: 4%;
+    left: calc(50% - 45%/2);
+    top: 82%;
+    
+    background: #FFFFFF;
+    }
+    .lenta2:after {
+        content: '';
+        position: absolute;
+        left: -1%; bottom: 0; width: 0; height: 0;
+        border-left: 5px solid #5d8cc4;
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+      }
+    
+    .lenta2:before {
+        content: '';
+        position: absolute;
+        right: -1%;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-left: 5px solid #5d8cc4;
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+        transform: rotate(180deg);
+      }
+    

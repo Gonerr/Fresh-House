@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Задания</title>
+    <link rel="icon" href="./img/Logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/Logo.png" type="image/x-icon">
+    <meta property="og:title" content="Tasks - Landing Page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Raleway;
+        font-size: 18px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.55;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <style>
+      html {
+      scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <link rel="stylesheet" href="./css/style.css" />
+    <div>
+      <link rel="stylesheet" href="./css/logo.css" />
+      <link rel="stylesheet" href="./css/index.css" />
+      <link href="./css/tasks.css" rel="stylesheet" />
+      <div class="tasks-container">
+        <div data-role="Header" class="header">
+          <div class="navbar">
+            <div class="left-side">
+              <a href="index.html" class="navlink">
+                <link href="./css/logo.css" rel="stylesheet" />
+                <div class = "logo">
+      
+                  <div class="piece_of_roof1"></div>
+                  <div class="piece_of_roof2"></div>
+      
+                  <div class="tube"></div>
+                  <div class="shadow_tube"></div>
+      
+                  <svg class="stars" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 22 24" fill="none">
+                    <path d="M10.3514 1.32312C10.3514 1.32312 10.3514 7.15244 11.0546 7.92089C11.7579 8.68935 15.3243 9.00765 15.3243 9.00765C15.3243 9.00765 11.6972 9.32595 11.0546 10.0944C10.4121 10.8629 10.4121 16.242 10.4121 16.242C10.4121 16.242 10.3514 10.9947 9.64808 10.0944C8.94479 9.19411 5.37839 9.00765 5.37839 9.00765C5.37839 9.00765 8.93051 8.68935 9.64808 7.92089C10.3656 7.15244 10.3514 1.32312 10.3514 1.32312Z" fill="#5D8CC4"/>
+                    <path d="M14.7027 13.7556C14.7027 13.7556 14.7027 17.6418 15.1423 18.1541C15.5818 18.6664 17.8108 18.8786 17.8108 18.8786C17.8108 18.8786 15.5439 19.0908 15.1423 19.6031C14.7407 20.1154 14.7407 23.7015 14.7407 23.7015C14.7407 23.7015 14.7027 20.2033 14.2632 19.6031C13.8236 19.0029 11.5946 18.8786 11.5946 18.8786C11.5946 18.8786 13.8147 18.6664 14.2632 18.1541C14.7116 17.6418 14.7027 13.7556 14.7027 13.7556Z" fill="#5D8CC4"/>
+                    <path d="M19.6757 11.2691C19.6757 11.2691 19.6757 13.2122 19.9394 13.4683C20.2031 13.7245 21.5405 13.8306 21.5405 13.8306C21.5405 13.8306 20.1804 13.9367 19.9394 14.1928C19.6984 14.449 19.6984 16.242 19.6984 16.242C19.6984 16.242 19.6757 14.4929 19.4119 14.1928C19.1482 13.8927 17.8108 13.8306 17.8108 13.8306C17.8108 13.8306 19.1429 13.7245 19.4119 13.4683C19.681 13.2122 19.6757 11.2691 19.6757 11.2691Z" fill="#5D8CC4"/>
+                    <path d="M2.89191 0.0798721C2.89191 0.0798721 2.89191 2.99453 3.24355 3.37876C3.5952 3.76299 5.3784 3.92214 5.3784 3.92214C5.3784 3.92214 3.56484 4.08129 3.24355 4.46552C2.92227 4.84975 2.92227 7.53933 2.92227 7.53933C2.92227 7.53933 2.89191 4.91567 2.54027 4.46552C2.18863 4.01537 0.405426 3.92214 0.405426 3.92214C0.405426 3.92214 2.18149 3.76299 2.54027 3.37876C2.89905 2.99453 2.89191 0.0798721 2.89191 0.0798721Z" fill="#5D8CC4"/>
+                    </svg>
+      
+                  <div class="windows">
+                    <div class="window"></div>
+                    <div class="window"></div>
+                    <div class="window"></div>
+                    <div class="window"></div>
+                  </div> 
+      
+                  <div class="roof2_1"></div>
+                  <div class="roof2_2"></div>
+                  <div class="textFH1">FRESH HOUSE</div> 
+                  <!-- <div class="textFH">FH</div>  -->
+                  <div class="lenta"></div> 
+                  <div class="lenta2"></div> 
+                </div>
+              </a>
+              <div data-role="BurgerMenu" class="burger-menu">
+                <svg viewBox="0 0 1024 1024" class="icon">
+                  <path
+                    d="M128 256h768v86h-768v-86zM128 554v-84h768v84h-768zM128 768v-86h768v86h-768z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="links-container">
+                <a href="index.html" class="link Anchor">Главная</a>
+                <a href="tasks.html" class="link Anchor">Задачи</a>
+                <a href="feedback.html" class="link Anchor">Отзывы</a>
+                <a href="about-us.html" class="link4 Anchor">О нас</a>
+              </div>
+            </div>
+            <div class="right-side">
+              <a href="#Call" class="cta-btn button">Заказать уборку</a>
+            </div>
+            <div data-role="MobileMenu" class="mobile-menu">
+              <div class="container01">
+                <img
+                  alt="image"
+                  src="./img/Logo.png"
+                  class="home-image1"
+                />
+                <div data-role="CloseMobileMenu" class="close-menu">
+                  <svg viewBox="0 0 1024 1024" class="icon02">
+                    <path
+                      d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="links-container1">
+                <a href="index.html" class="link Anchor">Главная</a>
+                <a href="feedback.html" class="link Anchor">Отзывы</a>
+                <a href="about-us.html" class="link Anchor">О нас</a>
+                <span class="link08 Anchor">Задания</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="tasks-container-1">
+          <div class="task">
+            <!-- первое задание -->
+            <div class="container">
+              <div class="square">
+                <div class="sun"></div> 
+
+                <div class="arc-container">
+                  <div class="arc"></div>
+                  <div class="arc"></div>
+                  <div class="arc"></div>
+                </div>
+
+                <div class="trapezoid"></div>
+                <div class="parus"></div>
+                <div class="parus_triangle"></div>
+                <div class="triangle"> </div>  
+
+                <div class="wave1"></div>
+                <div class="wave2"></div>
+                <div class="wave3"></div>
+                <div class="wave4"></div>
+            </div>
+          </div>
+        </div>
+          <div class="task">
+            <svg width="200" height="200" viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg" id="Base"
+          filter=none>
+              <defs>
+                <filter id="sepia">
+                  <feColorMatrix type="matrix" 
+                    values="0.272 0.534 0.131 0 0
+                            0.349 0.686 0.168 0 0
+                            0.393 0.769 0.189 0 0
+                            0     0     0     1 0"/>
+                </filter>
+              </defs>
+              <!-- градиент для фона -->
+               <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:var(--dl-color-primary-bluelight)" />
+                  <stop offset="100%" style="stop-color:#ffffff" />
+                </linearGradient>
+              </defs>
+              <g filter="none">
+                    <rect filter="none" fill="url(#gradient)"
+                     height="200" width="200" y="0" x="0"/>
+                      <!-- М - передвинуть к 
+                      L  "Линия к" 
+                      H x (или h dx) горизонтальная линия
+                      V y (или v dy) вертикальная линия -->
+                      <g id="letters" >
+                        <!-- Буква Л -->
+                        <g>
+                          <path id="letter1" d="M 1 100 C 10.5 100 15.5 100 24 101
+                          V 95 L 18 96.8 C 18 96.8 16 96.8 16.5 93
+                          C 17 89 55 9.7 54.8 9.7 
+                          C 55 9.7 56 92 54 94 
+                          C 52 96 45 95 45 95
+                          V 101 C57 99.5 64 99.6 76 101
+                          V 95 C 76 95 69.7 97 67 92.7
+                          C 64 88 65 -0.03 65.6 1 
+                          C 52.6 2 36 1 36 1
+                          V 5 C 40.5 6 50 5.3 50 8
+                          C 50 11 10 93 7 95
+                          C 4 97 1 94 1 95 V 101 Z"
+                          fill="white" stroke="#C8C4F6" transform="translate(45 30)"/>
+                          <animateMotion
+                          id="animateletter"
+                          path="M 0, 0 C -50 150, -80 -60, -25 -20"
+                          dur="5s" 
+                          fill="freeze"
+                          begin="Base.mouseover" 
+                          restart="whenNotActive"/>
+                        </g>
+                        <!-- Буква А -->
+                        <g>
+                          <path id="letter2" d="M 1 101 C 10 100 15 100 23 101 
+                            V 96 C 23 96, 18.5 97.5, 16.5 94.5
+                            L 29.5 64.5 H 36 H 42 C 46 60, 48 60, 54 57.5
+                            H 33 L 52 12.5 L 59 94.5 C 57 96.5, 52 96, 52 96 
+                            V 101 C 61 99.6, 66 99.6, 76 101 
+                            V 96 C 76 96, 71 97, 69 94.5 C 67 92, 59 1, 59 1
+                            H 52 C 52 1, 10 94.5, 6.5 96 C 3 97.5, 2 96, 2 96
+                            L 1 101 Z"
+                            fill="white" stroke="#C7C3F5" transform="translate(80 67)"/>
+                          <animateMotion
+                            path="M 0, 0 C 50 -150, 70 60, 20 20"
+                            dur="5s" 
+                            fill="freeze"
+                            begin="Base.mouseover"
+                            restart="whenNotActive"/> 
+                            <!-- end="Base.mouseout" /> -->
+                        </g>
+                      </g>
+                      <!-- Картинка -->
+                      <image href="img/Котик2.png" 
+                        width="150" height="150"
+                        x="-25" y="55"  opacity="0">
+                          <animate 
+                          attributeName="opacity" 
+                          from="0" to="0.8" 
+                          dur="4s" 
+                          begin="Base.click+1s" 
+                          fill="freeze" 
+                          id="imgOpacity" 
+                          restart="whenNotActive"/>
+
+                          <animateTransform
+                          attributeName="transform"
+                          attributeType="XML"
+                          type="scale"
+                          from="1"
+                          to="1.05"
+                          begin="mouseover"
+                          end="mouseout"
+                          dur="10s"
+                          additive="sum"
+                          repeatCount="1"
+                        />
+                      </image>
+                      <!-- Подпись -->
+                      <text x="140" y="15" text-anchor="middle" opacity="0"
+                      font-style="italic" font-family="Palatino Linotype" 
+                      font-size="23" fill="white">
+                          <animate attributeName="opacity" from="0" to="1" dur="5s" 
+                          begin="Base.click+1s" 
+                          fill="freeze" 
+                          id="textOpacity" 
+                          restart="whenNotActive"/>
+                          <tspan x="150" dy="1em">Лихачева</tspan>
+                          <tspan x="130" dy="1em">Анастасия</tspan>
+                      </text>
+              </g> 
+              <animate id="sepiaAnimation" 
+              attributeName="filter"
+              to="url(#sepia)" 
+              begin="Base.click+6s"
+              restart="whenNotActive"/>
+          </svg>
+          </div>
+        </section>
+
+
+        <content>
+          <h2> Основы кода JS </h2>
+          <label> Введите длину канавы (в метрах):</label>
+          <input type="number" id="length" oninput="length()" min="0"/>
+          <legend>Будет ли бригада механизированной:</legend>
+          <div>
+              <input type="checkbox" id="Mechanical" name="Mechanical"  onclick="Mechanical();"/>
+          </div>
+          <svg width="200" height="200" viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg" id="Base1"
+          filter=none>
+              <defs>
+                <filter id="sepia">
+                  <feColorMatrix type="matrix" 
+                    values="0.272 0.534 0.131 0 0
+                            0.349 0.686 0.168 0 0
+                            0.393 0.769 0.189 0 0
+                            0     0     0     1 0"/>
+                </filter>
+              </defs>
+              <!-- градиент для фона -->
+               <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:var(--dl-color-primary-bluelight)" />
+                  <stop offset="100%" style="stop-color:#ffffff" />
+                </linearGradient>
+              </defs>
+              <g filter="none">
+                    <rect filter="none" fill="url(#gradient)"
+                     height="200" width="200" y="0" x="0"/>
+                      <!-- М - передвинуть к 
+                      L  "Линия к" 
+                      H x (или h dx) горизонтальная линия
+                      V y (или v dy) вертикальная линия -->
+                      <g id="letters" >
+                        <!-- Буква Л -->
+                        <g>
+                          <path id="letter3" d="M 1 100 C 10.5 100 15.5 100 24 101
+                          V 95 L 18 96.8 C 18 96.8 16 96.8 16.5 93
+                          C 17 89 55 9.7 54.8 9.7 
+                          C 55 9.7 56 92 54 94 
+                          C 52 96 45 95 45 95
+                          V 101 C57 99.5 64 99.6 76 101
+                          V 95 C 76 95 69.7 97 67 92.7
+                          C 64 88 65 -0.03 65.6 1 
+                          C 52.6 2 36 1 36 1
+                          V 5 C 40.5 6 50 5.3 50 8
+                          C 50 11 10 93 7 95
+                          C 4 97 1 94 1 95 V 101 Z"
+                          fill="white" stroke="#C8C4F6" transform="translate(45 30)"/>
+                          <animateMotion
+                          id="animateletter"
+                          path="M 0, 0 C -50 150, -80 -60, -25 -20"
+                          dur="5s" 
+                          fill="freeze"
+                          begin="Base1.mouseover" 
+                          restart="whenNotActive"/>
+                        </g>
+                        <!-- Буква А -->
+                        <g>
+                          <path id="letter4" d="M 1 101 C 10 100 15 100 23 101 
+                            V 96 C 23 96, 18.5 97.5, 16.5 94.5
+                            L 29.5 64.5 H 36 H 42 C 46 60, 48 60, 54 57.5
+                            H 33 L 52 12.5 L 59 94.5 C 57 96.5, 52 96, 52 96 
+                            V 101 C 61 99.6, 66 99.6, 76 101 
+                            V 96 C 76 96, 71 97, 69 94.5 C 67 92, 59 1, 59 1
+                            H 52 C 52 1, 10 94.5, 6.5 96 C 3 97.5, 2 96, 2 96
+                            L 1 101 Z"
+                            fill="white" stroke="#C7C3F5" transform="translate(80 67)"/>
+                          <animateMotion
+                            path="M 0, 0 C 50 -150, 70 60, 20 20"
+                            dur="5s" 
+                            fill="freeze"
+                            begin="Base1.mouseover"
+                            restart="whenNotActive"/> 
+                            <!-- end="Base.mouseout" /> -->
+                        </g>
+                      </g>
+                      <!-- Картинка -->
+                      <image href="img/Котик2.png" 
+                        width="150" height="150"
+                        x="-25" y="55"  opacity="0">
+                          <animate 
+                          attributeName="opacity" 
+                          from="0" to="0.8" 
+                          dur="4s" 
+                          begin="Base1.click+1s" 
+                          fill="freeze" 
+                          id="imgOpacity" 
+                          restart="whenNotActive"/>
+
+                          <animateTransform
+                          attributeName="transform"
+                          attributeType="XML"
+                          type="scale"
+                          from="1"
+                          to="1.05"
+                          begin="mouseover"
+                          end="mouseout"
+                          dur="10s"
+                          additive="sum"
+                          repeatCount="1"
+                        />
+                      </image>
+                      <!-- Подпись -->
+                      <text x="140" y="15" text-anchor="middle" opacity="0"
+                      font-style="italic" font-family="Palatino Linotype" 
+                      font-size="23" fill="white">
+                          <animate attributeName="opacity" from="0" to="1" dur="5s" 
+                          begin="Base1.click+1s" 
+                          fill="freeze" 
+                          id="textOpacity" 
+                          restart="whenNotActive"/>
+                          <tspan x="150" dy="1em">Лихачева</tspan>
+                          <tspan x="130" dy="1em">Анастасия</tspan>
+                      </text>
+              </g> 
+              <animate id="sepiaAnimation" 
+              attributeName="filter"
+              to="url(#sepia)" 
+              begin="Base1.click+6s"
+              restart="whenNotActive"/>
+          </svg>
+          <button class="task-cta-btn" id="btn1" onclick="calc();">
+              Расчитать количество землекопов</button>
+          <div id ="result"></div>
+        </content>
+
+
+        <!-- Задание: слова -->
+        <link href="./css/Words.css" rel="stylesheet" />
+
+        <section class="words-container">
+
+          <div class="output">
+            <div class="output-word"></div>
+          </div>
+
+          <div class="box_for_objects">
+            <div class="objects" id="objects" 
+              ondragover="dragOver(event)" ondrop="dragDrop(event)"> </div>
+          </div>
+
+          <div class="input_words">
+            <textarea placeholder="placeholder" class="textarea" id = "TextArea"> </textarea>
+            <div class="container_for_words">
+              <button type="button" class="words-button button" onclick="parseString()">Разобрать</button>
+              <div id="parse_words" 
+                ondragover="dragOver(event)" ondrop="dragDrop(event)"> </div>
+            </div>
+          </div>
+
+        </section>
+        <script src="./js/words.js"></script>
+
+        <!--DOM-тест-->
+        <link href="./css/dom_test.css" rel="stylesheet" />
+        
+        <section class="dom-test">
+          <div class="text-box" id="QuestionBtn">
+             <a href="#question" class="quest-btn quest-btn-blue quest-btn-animate">Вопрос</a>
+          </div>
+          <div id="Container-DOM"></div>
+        </section>
+        <script src="./js/dom-test.js"></script>
+
+
+        <div class="footer-container">
+          <div class="footer">
+            <div class="links-page">
+              <div class="container-foot1">
+                <a href="#main" class="nameComp">FRESH HOUSE</a>
+                <a href="index.html" class="foot-navlink3">Главная</a>
+                <a href="feedback.html" class="foot-navlink3">Отзывы</a>
+                <a href="tasks.html" class="foot-navlink3">Задания</a>
+                <a href="about-us.html" class="foot-navlink3">О нас</a>
+              </div>
+              <div class="container-foot2">
+                <a href="index.html" class="foot-link1">Основные услуги</a>
+                <a href="index.html" class="foot-link2"> Дополнительные услуги</a>
+                <a href="index.html" class="foot-link2">Этапы проведения услуг</a>
+              </div>
+            </div>
+            <div class="contacts">
+              <div class="data-container">
+                <span class="footer-text33">+7 (912) 362-97-72</span>
+                <div class="data">
+                  <svg viewBox="0 0 1024 1024" class="footer-icon">
+                    <path
+                      d="M512 490q44 0 75-31t31-75-31-75-75-31-75 31-31 75 31 75 75 31zM512 86q124 0 211 87t87 211q0 62-31 142t-75 150-87 131-73 97l-32 34q-12-14-32-37t-72-92-91-134-71-147-32-144q0-124 87-211t211-87z"
+                    ></path>
+                  </svg>
+                  <span class="footer-text34">Киров, ул. Профсоюзная, д. 1</span>
+                </div>
+                <a href="#Call" class="footer-link3">Заказать звонок</a>
+                <div class="social-links">
+                  <a
+                    href="https://vk.com/freshhouse43"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    class="footer-link13"
+                  >
+                    <svg viewBox="0 0 1024 1024" class="footer-icon">
+                      <path
+                        d="M928 0h-832c-52.8 0-96 43.2-96 96v832c0 52.8 43.2 96 96 96h832c52.8 0 96-43.2 96-96v-832c0-52.8-43.2-96-96-96zM829.4 716.8l-93.6 1.4c0 0-20.2 4-46.6-14.2-35-24-68-86.6-93.8-78.4-26 8.2-25.2 64.4-25.2 64.4s0.2 12-5.8 18.4c-6.4 7-19.2 8.4-19.2 8.4h-41.8c0 0-92.4 5.6-173.8-79.2-88.8-92.4-167.2-275.8-167.2-275.8s-4.6-12 0.4-17.8c5.6-6.6 20.6-7 20.6-7l100.2-0.6c0 0 9.4 1.6 16.2 6.6 5.6 4 8.6 11.8 8.6 11.8s16.2 41 37.6 78c41.8 72.2 61.4 88 75.6 80.4 20.6-11.2 14.4-102.2 14.4-102.2s0.4-33-10.4-47.6c-8.4-11.4-24.2-14.8-31-15.6-5.6-0.8 3.6-13.8 15.6-19.8 18-8.8 49.8-9.4 87.4-9 29.2 0.2 37.8 2.2 49.2 4.8 34.6 8.4 22.8 40.6 22.8 117.8 0 24.8-4.4 59.6 13.4 71 7.6 5 26.4 0.8 73.4-79 22.2-37.8 39-82.2 39-82.2s3.6-8 9.2-11.4c5.8-3.4 13.6-2.4 13.6-2.4l105.4-0.6c0 0 31.6-3.8 36.8 10.6 5.4 15-11.8 50-54.8 107.4-70.6 94.2-78.6 85.4-19.8 139.8 56 52 67.6 77.4 69.6 80.6 22.8 38.4-26 41.4-26 41.4z"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a
+                    href="https://t.me/+79123629772"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    class="footer-link13"
+                  >
+                    <svg viewBox="0 0 1024 1024" class="footer-icon">
+                      <path
+                        d="M679.429 746.857l84-396c7.429-34.857-12.571-48.571-35.429-40l-493.714 190.286c-33.714 13.143-33.143 32-5.714 40.571l126.286 39.429 293.143-184.571c13.714-9.143 26.286-4 16 5.143l-237.143 214.286-9.143 130.286c13.143 0 18.857-5.714 25.714-12.571l61.714-59.429 128 94.286c23.429 13.143 40 6.286 46.286-21.714zM1024 512c0 282.857-229.143 512-512 512s-512-229.143-512-512 229.143-512 512-512 512 229.143 512 512z"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/_fresh_house_"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    class="footer-link13"
+                  >
+                    <svg
+                      viewBox="0 0 877.7142857142857 1024"
+                      class="footer-icon"
+                    >
+                      <path
+                        d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="copyright">
+            <svg viewBox="0 0 1024 1024" class="footer-icon54">
+              <path
+                d="M512 854q140 0 241-101t101-241-101-241-241-101-241 101-101 241 101 241 241 101zM512 86q176 0 301 125t125 301-125 301-301 125-301-125-125-301 125-301 301-125zM506 390q-80 0-80 116v12q0 116 80 116 30 0 50-17t20-43h76q0 50-44 88-42 36-102 36-80 0-122-48t-42-132v-12q0-82 40-128 48-54 124-54 66 0 104 38 42 42 42 98h-76q0-14-6-26-10-20-14-24-20-20-50-20z"
+              ></path>
+            </svg>
+            <span class="footer-link16">Все Права защищены, 2023</span>
+            <a href="politics.html" class="footer-link17">
+              Политика конфиденциальности
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+    <script src="js/svg_task.js"> </script>
+    <script src="js/task.js"></script>
+  </body>
+</html>

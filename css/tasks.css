@@ -1,0 +1,266 @@
+.tasks-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  font-size: medium;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tasks-container-1 {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.task {
+  gap: var(--dl-space-space-fourunits);
+  width: 200px;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: 200px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/* #Base3{
+  position:fixed;
+  align-self: flex-start;
+  margin-top:100px;
+  width: 100px;
+  height:100px;
+  margin-left:10px;
+} */
+
+#letter1{
+  transition: transform 0.2s ease; 
+  }
+ 
+#letter2{
+  transition: transform 0.2s ease; 
+  }
+.container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgb(109, 138, 170);
+  overflow: hidden; /* Скрываем содержимое, выходящее за пределы контейнера */
+}
+
+.square {
+width: 100%;
+height: 100%;
+background: linear-gradient(to right, rgb(247, 247, 246), rgb(156, 201, 219));
+}
+
+.sun {
+position: absolute;
+background: rgb(245, 237, 128);
+opacity: 0.7;
+border-radius: 50%;
+width: 22.5%;
+height: 22.5%;
+top: -2.5%;
+left: -5%;
+}
+
+.wave1{
+position: absolute;
+background: linear-gradient(to bottom right, rgb(218, 229, 236), rgb(19, 114, 192));
+border-radius: 50%;
+width: 40%;
+height: 35%;
+top: 75%;
+left: -7.5%;
+}
+
+.wave2{
+position: absolute;
+background: linear-gradient(to bottom right,  rgb(218, 229, 236), rgb(19, 114, 192));
+border-radius: 50%;
+width: 40%;
+height: 35%;
+top: 70%;
+left: 20%;
+}
+
+.wave3{
+position: absolute;
+background: linear-gradient(to bottom right,  rgb(218, 229, 236), rgb(19, 114, 192));
+border-radius: 50%;
+width: 40%;
+height: 35%;
+top: 77.5%;
+left: 40%;
+}
+
+.wave4{
+position: absolute;
+background: linear-gradient(to bottom right, rgb(218, 229, 236), rgb(19, 114, 192));
+border-radius: 50%;
+width: 40%;
+height: 35%;
+top: 72.5%;
+left: 70%;
+}
+
+.trapezoid{
+position: absolute;
+width: 25%; /* Ширина верхней горизонтальной линии */
+height: 0; 
+border-left: 60px solid transparent;
+border-right: 20px solid transparent; 
+border-top: 70px solid rgb(130, 87, 25); /* Основание (нижняя горизонтальная линия) */
+top: 65%; 
+left: 30%; 
+}
+
+.parus{
+position: absolute;
+left:45%;
+top: 25%;
+width:3%;
+height: 40%;
+background: rgb(130, 87, 25);
+}
+.parus_triangle{
+position: absolute;
+width: 0;
+height: 0;
+border-left: 40px solid transparent;
+border-right: 40px solid transparent;
+border-bottom: 35px solid rgb(136, 233, 242); /* 35 - это высота, рассчитанная для равностороннего треугольника */
+left:36.5%;
+top: 36.5%;
+transform: rotate(90deg);
+}
+
+.triangle{
+position: absolute;
+width: 0;
+height: 0;
+border-left: 7px solid transparent;
+border-right: 7px solid transparent;
+border-bottom: 12px solid rgb(212, 0, 0); 
+left:44.5%;
+top: 20%;
+transform: rotate(90deg);
+}
+
+.arc-container {
+display: flex; /* Размещаем элементы внутри контейнера в ряд */
+width: 100%;
+height: 100%;
+}
+
+.arc {
+width: 40%;
+height: 75%;
+background-color: transparent;
+border-top-left-radius: 48%;
+border-top-right-radius: 48%;
+border: 6px solid rgb(138, 136, 136);
+margin-right: -0.5%; /* Расстояние между элементами */
+margin-top: 22.5%;
+box-shadow: 0px -3px 0px 0px rgb(138, 136, 136);
+}
+
+
+content {
+  text-align: center;
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="number"] {
+  width: 30%;
+  padding: 5px;
+  border: 5px solid #ccc;
+  border-radius: 5px;
+  margin: 0 auto; /* Центрирование по горизонтали */
+  display: block; 
+}
+
+legend {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.task-cta-btn {
+  padding-top: var(--dl-space-space-unit);
+  border-color: #5996b1;
+  padding-left: var(--dl-space-space-fiveunits);
+  border-radius: var(--dl-radius-radius-radius24);
+  padding-right: var(--dl-space-space-fiveunits);
+  padding-bottom: var(--dl-space-space-unit);
+  font-family: Raleway;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--dl-color-gray-white);
+  background-color: var(--dl-color-primary-bluelight);
+  box-shadow: rgb(212, 212, 212) 5px 5px 10px 0px;
+  font-size: 100%;
+  line-height: 1.15;
+  border-style: solid;
+  display: block; /* Делаем кнопку блочным элементом для центрирования по горизонтали */
+  margin: 0 auto; 
+  width: fit-content; 
+}
+
+
+
+@media(max-width: 991px) {
+  .tasks-container {
+    font-size: small;
+  }
+}
+@media(max-width: 767px) {
+  .tasks-container {
+    font-size: smaller;
+  }
+
+  .tasks-container-1 {
+    flex-direction: column;
+    margin-top: 20%;
+  }
+  
+  .task{
+    margin-bottom:var(--dl-space-space-fiveunits);
+  }
+  
+}
+@media(max-width: 479px) {
+  .tasks-container {
+    font-size: smaller;
+  }
+
+  .tasks-container-1 {
+    flex-direction: column;
+    margin-top: 20%;
+  }
+  
+  .task{
+    margin-bottom:var(--dl-space-space-fiveunits);
+  }
+}

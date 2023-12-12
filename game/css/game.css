@@ -1,0 +1,144 @@
+body {
+    margin: 0;   /*чтобы убрать рамки*/
+    padding: 0;
+    font-style:normal;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.55;
+    color: var(--dl-color-gray-black);
+    background-color: var(--dl-color-gray-white);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 18px;
+    }
+
+.game-container{
+    flex: 0 0 auto;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    justify-content: center;
+    background-image: url("../img/Фон_для_игры.png");
+}
+
+.main-back {
+    /* flex: 0 0 auto; */
+    width: 50%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    padding-top: 35px;
+    padding-left: var(--dl-space-space-tenunits);
+    border-radius: var(--dl-radius-radius-radius24);
+    padding-right: var(--dl-space-space-tenunits);
+    flex-direction: column;
+    padding-bottom: 35px;
+    justify-content: space-between;
+    background-color: var(--dl-color-gray-white);
+  }
+
+.second_text {
+    color: var(--dl-color-gray-black);
+    font-style: normal;
+    font-weight: 500;
+  }
+.second_text.center{
+    font-size: 1.1em;
+    text-align: center;
+}
+.name_of_game {
+    color: rgb(61, 114, 160);
+    height: auto;
+    font-size: 150px;
+    text-align: center;
+    font-family: "Bristol";
+    line-height: 0.9;
+    letter-spacing: 8px;
+    text-transform: capitalize;
+  }
+
+  .name_of_game.text2 {
+    font-size: 110px;
+  }
+
+  .container2 {
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+.cta-btn.rating {
+    width: 180px;
+    margin-right: var(--dl-space-space-fiveunits);
+    padding: 5px;
+}
+
+.cta-btn.start-game {
+    width: 180px;
+    padding: 5px;
+    margin-right: 0;
+}
+
+  #query_user {
+    flex: 0 0 auto;
+    width: 500px;
+    height: 230px;
+    display: none;
+    z-index: 100;
+    position: fixed;
+    box-shadow: 10px 10px 10px 1px #606565;
+    margin-top: 14%;
+    margin-left: 31%;
+    align-items: center;
+
+    padding-top: var(--dl-space-space-tripleunit);
+    border-color: var(--dl-color-primary-dark_blue);
+    border-style: solid;
+    border-width: 1px;
+    padding-left: var(--dl-space-space-tripleunit);
+    border-radius: var(--dl-radius-radius-radius24);
+    padding-right: var(--dl-space-space-tripleunit);
+    flex-direction: column;
+    padding-bottom: var(--dl-space-space-fiveunits);
+    justify-content: space-between;
+    background-color: var(--dl-color-gray-white);
+  }
+  
+  #close {
+    fill: var(--dl-color-primary-dark_blue);
+    width: 10%;
+    height: 20%;
+    align-self: flex-end;
+  }
+
+  #close:active {
+    transform: scaleX(0.9) scaleY(0.9);
+}
+.cta-btn:active{
+    transform: scaleX(0.9) scaleY(0.9);
+}
+  .container4 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .textinput {
+    border-color: #49589e;
+    border-width: 0.5px;
+    margin-right: var(--dl-space-space-doubleunit);
+    border-radius: var(--dl-radius-radius-radius8);
+  }
+
+
+
