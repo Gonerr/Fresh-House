@@ -1,3 +1,10 @@
+
+@font-face {
+  font-family: 'Bristol'; 
+  src: local('Bristol'),
+    url(../fonts/Bristol.otf); 
+}
+
 body {
     margin: 0;   /*чтобы убрать рамки*/
     padding: 0;
@@ -27,8 +34,9 @@ body {
 }
 
 .main-back {
-    width: 50%;
+    width: 60%;
     height: 70%;
+    max-height: 600px;
     display: flex;
     align-items: center;
     padding-top: 35px;
@@ -45,6 +53,7 @@ body {
     color: var(--dl-color-gray-black);
     font-style: normal;
     font-weight: 500;
+    text-align: center;
   }
 .second_text.center{
     font-size: 1.1em;
@@ -58,7 +67,7 @@ body {
 .name_of_game {
     color: rgb(61, 114, 160);
     height: auto;
-    font-size: 150px;
+    font-size: 8em;
     text-align: center;
     font-family: "Bristol";
     line-height: 0.9;
@@ -174,4 +183,58 @@ body {
       list-style-type: disc;
       list-style-image: none;
       list-style-position: outside;
+  }
+
+
+  @media(max-width: 767px) {
+    .name_of_game{
+      letter-spacing: 0;
+      font-size: 100px;
+    }
+
+    .name_of_game.text2{
+      letter-spacing: 0;
+      font-size: 90px;
+    }
+
+    .container2 {
+      flex-direction: column;
+    }
+
+    .cta-btn.rating{
+      margin-right: 0;
+      margin-bottom: var(--dl-space-space-tripleunit);
+    }
+
+  }
+
+
+  @media(max-width: 479px) {
+    .main-back {
+      height: 40%;
+      padding-top: 35px;
+      padding-bottom: 35px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .name_of_game{
+      letter-spacing: 0;
+      font-size: 70px;
+    }
+    .name_of_game.text2{
+      letter-spacing: 0;
+      font-size: 60px;
+    }
+  
+
+    .container2 {
+      flex-direction: column;
+    }
+
+    .cta-btn.rating{
+      margin-right: 0;
+      margin-bottom: var(--dl-space-space-tripleunit);
+    }
+
   }
