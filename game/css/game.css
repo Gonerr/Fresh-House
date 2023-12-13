@@ -27,7 +27,6 @@ body {
 }
 
 .main-back {
-    /* flex: 0 0 auto; */
     width: 50%;
     height: 70%;
     display: flex;
@@ -51,6 +50,11 @@ body {
     font-size: 1.1em;
     text-align: center;
 }
+.second_text.help{
+  font-size: 0.9em;
+  text-align: center;
+}
+
 .name_of_game {
     color: rgb(61, 114, 160);
     height: auto;
@@ -140,5 +144,34 @@ body {
     border-radius: var(--dl-radius-radius-radius8);
   }
 
+  .help {
+    width: 50%;
+    height: auto;
+    padding: 14px var(--dl-space-space-fiveunits) 40px ;
+    z-index: 100;
+    position: fixed;
+    align-self: center;
+    box-shadow: 10px 10px 10px 1px #606565;
+    border-color: var(--dl-color-primary-dark_blue);
+    border-style: solid;
+    border-radius: var(--dl-radius-radius-radius24);
+    background-color: var(--dl-color-gray-white);
+  }
 
+  .Close{
+      fill: var(--dl-color-primary-dark_blue);
+      width: 30px;
+      height: 30px;
+      margin-left: 99%;
+  }
+  .Close:active {
+    transform: scaleX(0.9) scaleY(0.9);
+}
 
+  .helpLi{
+      width: 100%;
+      text-align: center;
+      list-style-type: disc;
+      list-style-image: none;
+      list-style-position: outside;
+  }

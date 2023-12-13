@@ -81,13 +81,13 @@
                   </div>
                 </div>
                 <div class="right-side">
-                  <a href="#Rules" class="cta-btn button">Как играть?</a>
+                  <a href="#Rules" class="cta-btn button" onclick="help()">Как играть?</a>
                 </div>                
                  <div data-role="MobileMenu" class="mobile-menu">
                   <div class="container01">
                     <img
                       alt="image"
-                      src="./img/Logo.png"
+                      src="../img/Logo.png"
                       class="home-image1"
                     />
                     <div data-role="CloseMobileMenu" class="close-menu">
@@ -118,14 +118,15 @@
                   <br />
                   <span>введите имя игрока</span>
                 </span>
-                <div class="container4" id="InputNameForm">
+                <form class="container4" id="InputNameForm">
                   <input
                     type="text"
                     placeholder="Введите имя"
                     class="textinput input"
+                    id="nameInput"
                   />
-                  <a href="levels.html" class="cta-btn start-game button" id="Continue" onclick="Start()">Продолжить</a>
-                </div>
+                  <a href="#" class="cta-btn start-game button" id="Continue" onclick="Start()">Продолжить</a>
+                </form>
               </div>
             <div class="game-container" id ='game'>
                 <div class="main-back">
@@ -138,12 +139,11 @@
                     <span>ТЕКСТА</span>
                   </h1>
                   <div class="container2">
-                    <a href="#" class="cta-btn button rating">Рейтинг</a>
+                    <a href="score.html" class="cta-btn button rating">Рейтинг</a>
                     <a href="#" class="cta-btn button start-game" onclick="InputName()">Начать игру</a>
                   </div>
                 </div>
               </div>
-              <script src="./js/game.js"></script>
 
 
             <div class="footer-container">
@@ -225,6 +225,8 @@
                   </a>
                 </div>
               </div>
+              <script src="./js/screenSaver.js"></script>
+              <script src="./js/help.js"></script>
           </div>
         </body>
       </html>

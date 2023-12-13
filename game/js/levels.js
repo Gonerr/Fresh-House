@@ -1,134 +1,265 @@
-var timerInterval;
-var seconds;
-var root;
-var answerClick;
-var ScoreInLevel;
-var currentLevel = 0;
-var currentSublevel = 0;
-
-var level_1 = [{
-    answer: ["Слон","Арбуз","Дыня","Радуга","Жизнь","Яблоко","Лес","Белка","Книга","Язык","Память","Кот"], 
-    annotation: "В специальном окне, расположенном ниже, быстро и без ошибок нажимайте на слова в алфавитном порядке (сначала нажимайте на слова, начинающиеся на А, потом на Б и т.д.)",
-    right_answer: {}
-},
-
-];
-//"Арбуз","Дыня","Радуга","Жизнь","Учеба","Яблоко","Лес","Белка","Книга","Язык","Память","Кот"
-level_1[0].right_answer = level_1[0].answer.slice().sort((a, b) => a.localeCompare(b));
-
-
-// Создаем массив для хранения очков
-let Score = [];
-for (let i = 0; i < 3; i++) {
-  let levelArray = [];
-  for (let j = 0; j < 5; j++) {
-    let sublevelArray = 0;
-    levelArray.push(sublevelArray);
-  }
-  Score.push(levelArray);
-}
-
-//Так как от уровня сложности зависит время, которое дается на уровень, то разные уровни сложности
-//имеют свои временные этапы для легкого, среднего и сложного уровня соответственно
-//первый элемент - нижняя граница времени,второй - средняя граница времени,третий - верхняя граница времени
-//четвертый - коэффициент для уровня
-var rangeOfDifficults = [[20,40,60,1],[10,20,30,2],[5,10,15,3]]
-var currentLevelOfDifficult = []
-
-//Выбор уровня
-function choiceOfLevel(level){
-    currentLevelOfDifficult = rangeOfDifficults[level];
-    let ChoiceOfDifficult = document.querySelector(".choiceOfLevel");
-    ChoiceOfDifficult.remove();
-
-    let ContentOfGame = document.querySelector(".content");
-    ContentOfGame.style.display = "flex";
-}
-
-
-answerClick = 0;
-root = document.querySelector(".main-back .task");
-var word = document.createElement('span');
-var annotation = document.createElement('span');
-var text_task = document.getElementById("annotation");
-
-function ShowWords(){
-    answerClick = 0;
-    let btn = document.getElementById("StartLevel");
-    btn.remove(); //удаляем кнопку (начать)
-    startTimer();
-    
-
-    for (var j = 0; j<1; j++){
-        ScoreInLevel = 0;
-        annotation[j] = document.createElement('span');
-        annotation[j].id = 'secondLine';
-        annotation[j].innerHTML = level_1[0].annotation;
-        text_task.appendChild(annotation[j]);
-
-        // var RightAnswer = level_1.answer.slice().sort((a, b) => a.localeCompare(b));
-        // console.log(RightAnswer);
-
-        var WordsIndexes = [];
-        for (var i = 0; i < level_1[0].answer.length; i++) {
-            WordsIndexes.push(i);
+class Level {
+        constructor(answer, annotation, right_answer) {
+        this.answer = answer;
+        this.annotation = annotation;
+        if (right_answer === 0) {
+            this.right_answer = [...answer].sort((a, b) => a.localeCompare(b)); //в алфавитном порядке
+        } else if (right_answer === 1){
+            this.right_answer = [...answer].sort((a, b) => b.localeCompare(a)); //в обратном порядке
+        } else if (right_answer === 2){
+            this.right_answer = answer.slice().sort((a, b) => b - a); //числа по убыванию
+        } else {
+            this.right_answer = right_answer;
         }
-        // Перемешиваем индексы вопросов, чтобы они были в случайном порядке
-        shuffleArray(WordsIndexes);
+    }
+}
+  
+class Game {
+    constructor() {
+        this.timerInterval;
+        this.seconds;
+        this.root = document.querySelector(".main-back .task");
+        this.answerClick;
+        this.word = document.createElement('span');
+        this.annotation = document.createElement('span');
+        this.text_task = document.getElementById("annotation");
+        this.QuestionsIndexes = []
 
-        root = document.querySelector(".main-back .task");
-        var answered = new Array(level_1[0].answer.length).fill(false);
-        for (var i = 0; i < level_1[0].answer.length; i++) {               //tasks.length
-            let index = WordsIndexes[i];
-            
-            word[i] = document.createElement('span');
-            word[i].className = 'words';
-            word[i].innerText =  level_1[0].answer[index].toUpperCase();
-           
-            word[i].addEventListener('click', (function(clickedWord, wordIndex) {
-                return function(event) {
-                    // Проверяем условие правильности ответа 
-                    var isCorrect = clickedWord.innerText == level_1[0].right_answer[answerClick].toUpperCase(); 
-                    
-                    if (isCorrect && !answered[wordIndex]) { //меняем цвет в зависимости от ответа
-                        event.target.style.color = 'green'; 
-                        answered[wordIndex] = true;    // Устанавливаем флаг answered в true, чтобы предотвратить повторное нажатие
-                        answerClick++;
-                        ScoreInLevel+=5*currentLevelOfDifficult[3];
-                        if (answerClick==level_1[0].right_answer.length){
-                            stopTimer();
-                            deleteAllWords(root);
-                        }
-                    } else if (!answered[wordIndex]){
-                        event.target.style.color = 'red'; 
-                        setTimeout(function() {
-                            event.target.style.color = '#598bb1';
-                        }, 700);
-                        if (ScoreInLevel>0){
-                            ScoreInLevel-=2.5*currentLevelOfDifficult[3];
-                        }
-                    }
-                    
-                }
-            })(word[i],index));
-            root.appendChild(word[i]);
-        }
+        this.ScoreInLevel;
+        this.currentLevel = 0;
+        this.currentSublevel = 0;
+        this.num = 0;
+
+        this.lowertime;
+        this.midtime;
+        this.uppertime;
+        this.coefficient;
+        this.currentLevelOfDifficult;
+
+        this.levels = [
+        new Level(
+            ["Апрель", "Декабрь", "Июль", "Май", "Ноябрь", "Сентябрь", "Февраль", "Январь", "Август"],
+            "Кто-то перепутал все месяцы года! Расставьте их в нужном порядке, пока не закончилось время.",
+            ["Январь", "Февраль", "Апрель", "Май", "Июль", "Август", "Сентябрь", "Ноябрь", "Декабрь"]
+        ),
         
+        new Level(
+            ["Horse", "Mouse", "day", "April","Pen","Bicycle","cat","frog","onion","tree","rose","queen","wolf"],
+            "В специальном окне, расположенном ниже, быстро и без ошибок нажимайте на английские слова в алфавитном порядке",
+            0
+        ),
+        new Level(
+            ["Красный", "Оранжевый", "Жёлтый", "Зелёный", "Голубой", "Синий", "Фиолетовый"],
+            "В расположенном ниже окне перечислены все цвета радуги. Помогите восстановить их порядок",
+            ["Красный", "Оранжевый", "Жёлтый", "Зелёный", "Голубой", "Синий", "Фиолетовый"]
+        ),
+        new Level(
+            [ "Титаник", "Бриллиантовая рука", "Ирония судьбы", "Черная молния", "Драйв", "Сумерки", "Салют-7",  "Экипаж"],
+            "Автор игры никак не может вспомнить названия популярных Российских фильмов. Помогите ему, выбрав в алфавитном порядке все их названия.",
+            ["Бриллиантовая рука", "Ирония судьбы", "Салют-7", "Черная молния", "Экипаж"]
+        )
+        ]
+        this.Score = Array.from({length: 3}, () => Array(5).fill(0));
     }
-    ScoreInLevel = 0; // Сбрасываем значение для нового уровня
-    currentSublevel = 0; // Сбрасываем подуровень для нового уровня
-    // currentLevel++; // Переходим к следующему уровню
+
+
     
+   /*Так как от уровня сложности зависит время, которое дается на уровень, то разные уровни сложности
+    имеют свои временные этапы для легкого, среднего и сложного уровня соответственно
+    первый элемент - нижняя граница времени,второй - средняя граница времени,третий - верхняя граница времени
+    четвертый - коэффициент для уровня */
+      setLevelParameters(level) {
+        switch (level) {
+          case 0:
+                // Простой уровень
+                this.lowertime = 20;
+                this.midtime = 40;
+                this.uppertime = 60;
+                this.coefficient = 1;
+                this.currentLevelOfDifficult="Лёгкий";
+
+                this.levels.push(
+                    new Level(
+                        ["Волк","Олень","Зебра","Верблюд","Кошка","Капибара","Рысь","Синица","Щука","Лисица","Аист"],
+                        "В специальном окне, расположенном ниже, быстро и без ошибок нажимайте на названия животных в алфавитном порядке (сначала нажимайте на слова, начинающиеся на А, потом на Б и т.д.)",
+                        0
+                    ),
+                    new Level(
+                        ["Слива","Арбуз","Дыня","Жвачка","Яблоко","Лимон","Баранка","Капуста","Ягоды","Морковь","Торт"],
+                        "В специальном окне, расположенном ниже, быстро и без ошибок нажимайте на названия продуктов в алфавитном порядке (сначала нажимайте на слова, начинающиеся на А, потом на Б и т.д.)",
+                        0
+                    ),
+                );
+                break;
+          case 1:
+                // Средний уровень
+                this.lowertime = 10;
+                this.midtime = 20;
+                this.uppertime = 30;
+                this.coefficient = 2;
+                this.currentLevelOfDifficult="Средний";
+
+                this.levels.push(
+                    new Level(
+                        ["1375","1349","328","1257","1224","989","5683","435","1309","1002","483","456","2456"],
+                        "В специальном окне, расположенном ниже, нажимайте на числа в порядке убывания",
+                        2
+                    ),
+                    new Level(["Джаз","Поп","Кантри","Блюз","Шансон","Инди","Хип-хоп","Чилаут","Рэп","Рок","Гранж","Рэгги"],
+                        "В специальном окне, расположенном ниже, быстро и без ошибок нажимайте на названия музыкальных жанров в обратном алфавитном порядке",
+                        1
+                    ),
+                    new Level(
+                        ["Ночь", "улица", "фонарь", "аптека","Бессмысленный","и","тусклый","свет","Живи","еще","хоть","четверть","века", "Все","будет","так", "Исхода","нет"],
+                        "Составьте из слов, расположенных ниже, строчку из одного известного произведения А.А. Блока",
+                        ["Ночь", "улица", "фонарь", "аптека","Бессмысленный","и","тусклый","свет","Живи","еще","хоть","четверть","века", "Все","будет","так", "Исхода","нет"]
+                    )
+                );
+                break;
+          case 2:
+                // Сложный уровень
+                this.lowertime = 5;
+                this.midtime = 10;
+                this.uppertime = 15;
+                this.coefficient = 3;
+                this.currentLevelOfDifficult="Сложный";
+
+                this.levels.push(
+                    new Level(
+                        ["back","we","could","turn","back","Wish","time","to","the","good","old","days", "When","our", "momma", "sang"],
+                        "Составьте из слов, расположенных ниже, строчку из одной популярной песни группы Twenty one pilots",
+                        ["Wish","we","could","turn","back","time","to","the","good","old","days", "When","our", "momma", "sang"]
+                    ),
+                    new Level(
+                        ["Snake", "cheese", "apple", "duck","blood","egg","kite","umbrella","house","dog","lion","lawn","racoon"],
+                        "В специальном окне, расположенном ниже, быстро и без ошибок нажимайте на английские слова в обратном алфавитном порядке",
+                        0
+                    ),
+                    new Level(
+                        ["1375","1349","328","1257","1224","989","5683","435","1309","1002","483","456","2456"],
+                        "В специальном окне, расположенном ниже, нажимайте на числа в порядке убывания",
+                        2
+                    ),
+                    new Level(["Джаз","Поп","Кантри","Блюз","Шансон","Инди","Хип-хоп","Чилаут","Рэп","Рок","Гранж","Рэгги"],
+                        "В специальном окне, расположенном ниже, быстро и без ошибок нажимайте на названия музыкальных жанров в обратном алфавитном порядке",
+                    1),
+                );
+                break;
+          default:
+            break;
+        }
+    }
+
+    //Выбор уровня
+    choiceOfLevel(level){
+        this.setLevelParameters(level);
+        let ChoiceOfDifficult = document.querySelector(".choiceOfLevel");
+        ChoiceOfDifficult.remove();
+
+        let ContentOfGame = document.querySelector(".content");
+        ContentOfGame.style.display = "flex";
+    }
+
+    //Начало уровня
+    ShowWords(){
+        for (let i = 0; i < this.levels.length; i++) {
+           this.QuestionsIndexes.push(i);
+        }
+        //перемешиваем индексы вопросов
+        shuffleArray(this.QuestionsIndexes);
+        let btn = document.getElementById("StartLevel");
+        btn.remove(); 
+
+        this.answerClick = 0;
+        this.startTimer();
+        this.showTask();
 }
 
-function deleteAllWords(root) {
-    // Удаляем все элементы внутри root
-    while (root.firstChild) {
-      root.removeChild(root.firstChild);
+
+    showTask() {
+        this.currentLevel = this.QuestionsIndexes[this.num]
+        console.log(this.levels[this.currentLevel]);
+        
+        this.ScoreInLevel = 0;
+        this.annotation = document.createElement('span');
+        this.annotation.id = 'secondLine';
+        this.annotation.innerHTML = this.levels[this.currentLevel].annotation;
+        this.text_task.appendChild(this.annotation);
+
+        this.addWordEventListeners();
+        this.currentSublevel = 0; // Сбрасываем подуровень для нового уровня
+        // currentLevel++; // Переходим к следующему уровню
+}
+
+addWordEventListeners() {
+    let WordsIndexes = [];
+    for (let i = 0; i < this.levels[this.currentLevel].answer.length; i++) {
+        WordsIndexes.push(i);
     }
+    //перемешиваем индексы
+    shuffleArray(WordsIndexes);
+
+    let answered = new Array(this.levels[this.currentLevel].answer.length).fill(false);
+    this.root = document.querySelector(".main-back .task");
+
+    //console.log('Это текущий список ответов', this.levels[this.currentLevel]);
+
+    for (let i = 0; i < this.levels[this.currentLevel].answer.length; i++) {
+        let index = WordsIndexes[i];
+        this.word[i] = document.createElement('span');
+        this.word[i].className = 'words';
+        this.word[i].innerText = this.levels[this.currentLevel].answer[index].toUpperCase();
+        this.word[i].addEventListener('click', this.wordClickHandler);
+        this.word[i].addEventListener('click', (event) => {
+            // Проверяем условие правильности ответа 
+            //console.log(this.word[i].innerText, this.levels[this.currentLevel].right_answer[this.answerClick].toUpperCase());
+            var isCorrect = this.word[i].innerText == this.levels[this.currentLevel].right_answer[this.answerClick].toUpperCase();
+
+            //если ответ правельный и ещё не был выбран
+            if (isCorrect && !answered[index]) {
+                event.target.style.color = 'green';
+                answered[index] = true;
+                this.answerClick++;
+                this.ScoreInLevel += 5 * this.coefficient;
+                //если все правильные вопрсы отмечены, то очищаем окно
+                if (this.answerClick == this.levels[this.currentLevel].right_answer.length) {
+                    this.stopTimer();
+                    this.deleteAllWords();
+                } 
+            } else if (!answered[index]) {      
+                event.target.style.color = 'red';
+                setTimeout(function () {
+                    event.target.style.color = '#598bb1';
+                }, 700);
+                //меньше нуля баллов получиться не должно
+                if (this.ScoreInLevel > 0) {
+                    this.ScoreInLevel -= 2.5 * this.coefficient;
+                }
+            }
+        });
+        this.root.appendChild(this.word[i]);
+    }
+  }
+
+  getScoreAndDifficulty() {
+    let totalScore = this.Score.reduce((acc, row) => acc + row.reduce((sum, val) => sum + val, 0), 0);
+    let difficulty = this.currentLevelOfDifficult;
+    console.log(totalScore,difficulty);
+    return {
+      totalScore,difficulty
+    };
+  }
+
+deleteAllWords() {
+    // Удаляем все элементы внутри root
+    while (this.root.firstChild) {
+        this.root.removeChild(this.root.firstChild);
+    }
+
     var messageElement = document.createElement('span');
     messageElement.className =  'words'; 
-    if (level_1[0].right_answer.length==answerClick){
+
+    if (this.levels[this.currentLevel].right_answer.length == this.answerClick){
         messageElement.innerText = 'Вы нашли все слова!'.toUpperCase();
     } else {
         messageElement.style.height='auto';
@@ -150,52 +281,105 @@ function deleteAllWords(root) {
     path2.style.fill="#598bb1";
     svg.appendChild(path2);
 
-    root.appendChild(messageElement);
-    root.appendChild(svg);
+    this.root.appendChild(messageElement);
+    this.root.appendChild(svg);
 
-    console.log('КОНЕЦ УРОВНЯ. Баллы:',Score);
+    this.Score[this.currentSublevel][this.num] = this.ScoreInLevel;
+    this.ScoreInLevel = 0;
+    console.log('КОНЕЦ УРОВНЯ. Баллы:',this.Score);
 
+    const { totalScore, difficulty } = this.getScoreAndDifficulty();
+    if (this.num<4){
+        this.num++;
+        svg.addEventListener("click", (event) => {
+            while (this.root.firstChild) {
+                this.root.removeChild(this.root.firstChild);
+                }
+            this.NextTask(event); // Оставляем стрелочную функцию, но используем this из окружения
+        });
+    } else {
+        this.num = 0;
+        this.text_task.removeChild(this.annotation);
+        messageElement.innerText = 'Вы прошли весь уровень!'.toUpperCase();
+    };
+    var playerName = localStorage.getItem("playerName");
+    
+    // Сохранение текущего уровня сложности и очков в Local Storage
+    localStorage.setItem("currentDifficulty", difficulty);
+    localStorage.setItem("currentTotalScore", totalScore);
+    console.log(totalScore,difficulty);
+
+    var userData = {
+        playerName: playerName,
+        currentDifficulty: difficulty,
+        currentTotalScore: totalScore
+      };
+      
+      // Сериализация объекта в строку JSON и сохранение в Local Storage
+      localStorage.setItem("userData", JSON.stringify(userData));
+    
   }
 
-  function startTimer() {
-    seconds = 0;
-    timerInterval = setInterval(updateTimer, 1000);
+  NextTask() {
+    this.text_task.removeChild(this.annotation);
+    this.answerClick = 0;
+    this.startTimer();
+    this.showTask();
+  }
+  
+
+  startTimer() {
+    this.seconds = 0;
+    this.timerInterval = setInterval(this.updateTimer.bind(this), 1000);
   }
 
 
-  function updateTimer() {
-    seconds++;
+  updateTimer() {
+    this.seconds++;
     var timer = document.getElementById("Timer");
-    timer.innerText = seconds;
+    timer.innerText = this.seconds;
     var Clock = document.querySelector(".container3");
 
-    if (seconds>=currentLevelOfDifficult[0] && seconds<currentLevelOfDifficult[1]){
-        Clock.style.borderColor = "Orange";
-        timer.style.color="Orange";
+    if (this.seconds>=this.lowertime && this.seconds < this.midtime){
+        if (this.seconds%2===0){
+            Clock.style.borderColor = "Orange";
+            timer.style.color="Orange";}
+        else{
+            Clock.style.borderColor = "White";
+            timer.style.color="White";
+        }
 
-    } else if (seconds>=currentLevelOfDifficult[1] && seconds<currentLevelOfDifficult[2]){
-        Clock.style.borderColor = "Red";
-        timer.style.color="Red";
+    } else if (this.seconds >= this.midtime && this.seconds < this.uppertime){
+        if (this.seconds%2===0){
+            Clock.style.borderColor = "Red";
+            timer.style.color="Red";}
+        else{
+            Clock.style.borderColor = "White";
+            timer.style.color="White";
+        }
 
-    } else if (seconds>=currentLevelOfDifficult[2]){
-        stopTimer();
-        deleteAllWords(root);
+    } else if (this.seconds >= this.uppertime){
+        this.stopTimer();
+        this.deleteAllWords();
     };
 }
 
-function stopTimer() {
-    clearInterval(timerInterval);
-    console.log("Последнее значение секунд:", seconds);
-    if (seconds<=currentLevelOfDifficult[0]){
-        ScoreInLevel+=20*currentLevelOfDifficult[3];
-    } else if (seconds <=currentLevelOfDifficult[1]) {
-        ScoreInLevel+=10*currentLevelOfDifficult[3];
-    };
-    Score[currentLevel][currentSublevel] = ScoreInLevel;
+stopTimer() {
+    clearInterval(this.timerInterval);
+    var Clock = document.querySelector(".container3");
+    Clock.style.borderColor = "white";
 
-    //для следующего уровня
-    ScoreInLevel = 0; 
+    var timer = document.getElementById("Timer");
+    timer.style.color="White";
+
+    console.log("Последнее значение секунд:", this.seconds);
+    if (this.seconds <= this.lowertime){
+        this.ScoreInLevel += 20 * this.coefficient;
+    } else if (this.seconds <= this.midtime) {
+        this.ScoreInLevel += 10 * this.coefficient;
+    };
   }
+}
 
 
 //функция, меняющая местами элементы массива
