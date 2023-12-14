@@ -154,7 +154,7 @@ body {
   }
 
   .help {
-    width: 50%;
+    width: 70%;
     height: auto;
     padding: 14px var(--dl-space-space-fiveunits) 40px ;
     z-index: 100;

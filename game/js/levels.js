@@ -8,6 +8,8 @@ class Level {
             this.right_answer = [...answer].sort((a, b) => b.localeCompare(a)); //в обратном порядке
         } else if (right_answer === 2){
             this.right_answer = answer.slice().sort((a, b) => b - a); //числа по убыванию
+        } else if (right_answer === 3){
+            this.right_answer = answer.slice().sort((a, b) => a - b); //числа по убыванию
         } else {
             this.right_answer =  right_answer.map(word => word.toUpperCase());
         };
@@ -45,7 +47,9 @@ class Game {
         this.coefficient;
         this.currentLevelOfDifficult;
 
-        this.LevelAnnotation = ['Нажимайте на слова в нужном порядке как можно быстрее!','Выберите в предложении необходимые слова, нажимая на цифровые кнопки клавиатуры. Будьте внимательны: на каждом уровне сложности ограниченное число допустимых ошибок','Перемещайте слова в нужном порядке.'];
+        this.LevelAnnotation = ['Нажимайте на слова в нужном порядке как можно быстрее!',
+        'Выберите в предложении необходимые слова, нажимая на цифровые кнопки клавиатуры. Будьте внимательны: на каждом уровне сложности ограниченное число допустимых ошибок',
+        'Перемещайте слова в нужном порядке, перетаскивая их в окне ниже.'];
         this.levels = [[
         new Level(
             ["Апрель", "Декабрь", "Июль", "Май", "Ноябрь", "Сентябрь", "Февраль", "Январь", "Август"],
@@ -69,16 +73,16 @@ class Game {
         )],
             [
         new Level(
-            ["Когда человека зевает, то непроизвольно открываются рот."],
+            ["Когда человека зеваете, то непроизвольно открываются роты."],
             "Кто-то написал предложение с ошибками, перепутав падежи. Помогите найти неверно написанные слова, нажимая на цифры (с помощью клавиатуры), соответствующие номерам данных слов",
-            ["человека", "открываются"],
+            ["человека", "зеваете,","открываются","роты."],
             7
         ),
         new Level(
-            ["Загадочная луна освещает ночное небо своим серебрянным светом"],
+            ["Загадочная луна освещает ночное далёкое небо своим серебрянным светом, и всё в этот миг забывается"],
             "Помогите найти в предложении все прилагательные, нажав на клавиатуре цифры, соответствующие их номерам в предложении",
-            ["Загадочная","ночное","серебрянным"],
-            8
+            ["Загадочная","ночное","далёкое","серебрянным"],
+            15
         ),
         new Level(
             ["Группа крови на рукаве, Мой порядковый номер на рукаве"],
@@ -87,19 +91,57 @@ class Game {
             9
         ),
         new Level(
-            ["Величественные горы уходят ввысь, касаясь голубого неба."],
+            ["Величественные горы уходят ввысь, касаясь голубого неба и теряясь там."],
             "Помогите найти в предложении все глаголы и причастия, нажимая на клавиатуре цифры, соответствующие их номерам в предложении",
-            ["уходят","касаясь"],
-            7
+            ["уходят","касаясь","теряясь"],
+            10
         ), 
         new Level(
             ["Величественные горы уходят ввысь, касаясь голубого неба."],
-            "Найдите в предложении все слова, начинающиеся на одну и ту же букву. Для этого необходимо на клавиатуре нажать на соответствующую цифровую клавишу (номер слова в предложении)",
-            ["горы","голубого"],
+            "Найдите в предложении все слова, начинающиеся на одинаковую букву. Для этого необходимо на клавиатуре нажать на соответствующую цифровую клавишу (номер слова в предложении)",
+            ["Величественные","горы","голубого","ввысь"],
             7
-        )
-        ]]
-        this.Score = Array.from({length: 3}, () => Array(5).fill(0));
+        )],
+        [
+            new Level(
+                ["А теперь улицы , ты теперь пацан , ты теперь с запомни , а кругом враги."],
+                "Кто-то перепутал в известной фразе все слова! Попробуйте исправить предложение, переставляя слова",
+                ["А теперь запомни , ты теперь пацан , ты теперь с улицы , а кругом враги."]
+            ),
+            new Level(
+                ["Лето", "закончилось", "и", "после", "него", "наступила", "осень"],
+                "Переставьте слова так, чтобы получилась новая фраза.",
+                ["Лето закончилось и после него наступила осень"]
+            ),
+            new Level(
+                ["Остров миля , Список проклятых , Дориан отец , Голодные Шиндлера , Крёстный Грей , Зелёная игры"],
+                "Кто-то перепутал в фильмах названия, состоящие из двух слов. Переставьте в названиях второе слово так, чтобы появились знакомые фильмы. Оставьте ПЕРВОЕ слово НЕТРОНУТЫМ!",
+                ["Остров проклятых , Список Шиндлера , Дориан Грей , Голодные игры , Крёстный отец , Зелёная миля"]
+            ),
+            new Level(
+                ["Яблоко", "Груша", "Апельсин", "Киви", "Персик", "Виноград", "Арбуз"],
+                "Расставьте слова в алфавитном порядке, переставляя их",
+                0
+            ),
+            new Level(
+                ["Б","а","б","о","ч","к","а"],
+                "Кто-то перемешал в слове все буквы! Попробуйте восстановить слово",
+                ["Б а б о ч к а"]
+            ),
+            new Level(
+                ["В","ё","р","с","т","к","а"],
+                "Кто-то перемешал в слове все буквы! Попробуйте восстановить слово",
+                ["В ё р с т к а"]
+            ),
+            new Level(
+                ["Б","е","с","п","о","р","я","д","о","к"],
+                "Кто-то перемешал в слове все буквы! Попробуйте восстановить слово",
+                ["Б е с п о р я д о к"]
+            )
+
+        ]
+    ]
+    this.Score = Array.from({length: 3}, () => Array(5).fill(0));
     }
 
 
@@ -134,26 +176,38 @@ class Game {
 
                 this.levels[1].push(
                     new Level(
-                        ["Мальчик катается на велосипеде, а девочка рисует мелками на асфальте"],
+                        ["Мальчик катается на велосипеде, а девочка смеётся и рисует мелками на асфальте"],
                         "Найдите все сказуемые в предложении и нажмите на соответствующие цифры для их выделения.",
-                        ["катается","рисует"],
-                        10
+                        ["катается","смеётся","рисует"],
+                        12
                     ),
                     new Level(
                         ["Солнце сияет ярко, а ветер ласкает лицо"],
-                        "Определите все слова в предложении, начинающиеся на букву Л, нажимая соответствующие цифры на клавиатуре.",
-                        ["ласкает","лицо"],
+                        "Определите все слова в предложении, начинающиеся на одну и ту же букву, нажимая соответствующие цифры на клавиатуре.",
+                        ["ласкает","лицо","солнце","сияет"],
                         7
                     )
                 );
 
+                this.levels[2].push(
+                    new Level(
+                        ["Люблю", "зиму", "с", "ее", "снегопадами"],
+                        "Переставьте слова так, чтобы получилась новая фраза.",
+                        ["Люблю зиму с ее снегопадами"]
+                    ),
+                    new Level(
+                        ["Хэй", "хэй", "всем", "привет","это","Куплинов","Плэй"],
+                        "Переставьте слова так, чтобы получилась новая фраза.",
+                        ["Хэй хэй всем привет это Куплинов Плэй"]
+                    )
+                )
                 break;
           case 1:
                 // Средний уровень
                 this.lowertime = 10;
                 this.midtime = 20;
                 this.uppertime = 30;
-                this.coefficient = 2;
+                this.coefficient = 1.5;
                 this.currentLevelOfDifficult="Средний";
                 this.wrong_answer = 1;
 
@@ -181,20 +235,37 @@ class Game {
                         8
                     ),
                     new Level(
-                        ["Собака бежит между деревьями и подпрыгивает через забор"],
+                        ["Эта собака бежит между деревьями и подпрыгивает через забор"],
                         "Определите все предлоги в предложении и выделите их, нажимая соответствующие цифры на клавиатуре.",
                         ["между","через"],
-                        8
+                        9
                     )
                 );
-                
+                this.levels[2].push(
+                    new Level(
+                        ["Сегодня","утром","заботливый","кот","смотрел","своими","глазами","на","весело","играющих","маленьких","соседских","детей."],
+                        "Переставьте слова в предложении так, чтобы получилась правильная структура, учитывая их части речи. ",
+                        ["Сегодня утром, заботливый кот смотрел своими глазами на весело играющих маленьких соседских детей."]
+                    ),
+                    new Level(
+                        ["Вчера вечером мы сидели в парк и говорили как птицы летят над прудом. Затем мы шли на лавке и видели о наших планах на будущее."],
+                        "Переставьте глаголы так, чтобы получилось правильно составленное предложение.",
+                        ["Вчера вечером мы сидели в парк и говорили как птицы летят над прудом. Затем мы шли на лавке и видели о наших планах на будущее."]
+                    ),
+                    new Level(
+                        ["Криминальное призраками, Форрест Уик, Унесённые чтиво, Джон психопат, Американский Гамп"],
+                        "Кто-то перепутал в фильмах названия, состоящие из двух слов. Переставьте в названиях первое слово так, чтобы появились знакомые фильмы. Оставьте ВТОРОЕ слово НЕТРОНУТЫМ!",
+                        ["Унесённые призраками, Джон Уик, Криминальное чтиво, Американский психопат, Форрест Гамп"]
+                    )
+                    
+                );
                 break;
           case 2:
                 // Сложный уровень
                 this.lowertime = 5;
                 this.midtime = 10;
                 this.uppertime = 15;
-                this.coefficient = 3;
+                this.coefficient = 2;
                 this.currentLevelOfDifficult="Сложный";
                 this.wrong_answer = 0;
 
@@ -221,16 +292,29 @@ class Game {
 
                 this.levels[1].push(
                     new Level(
-                        ["Петя читает книгу, а Маша пишет письмо."],
+                        ["Петя читает книгу, Маша пишет письмо, а Таня рисует."],
                         "Найдите главные члены предложения и нажмите на цифры для их выделения.",
-                        ["Петя","читает","Маша","Пишет"],
-                        7
+                        ["Петя","читает","Маша","Пишет","Таня","рисует"],
+                        10
                     ),
                     new Level(
                         ["На заседании обсуждались вопросы: решение проблем и разработка стратегии"],
                         "Найдите и выделите однородные члены предложения, связанные с обсуждением важных вопросов. Используйте цифры для выделения.",
                         ["решение","проблем","разработка","стратегии"],
                         9
+                    )
+                    
+                );
+                this.levels[2].push(
+                    new Level(
+                        ["Криминальное призраками, Форрест Уик, Унесённые чтиво, Джон психопат, Американский Гамп"],
+                        "Кто-то перепутал в фильмах названия, состоящие из двух слов. Переставьте в названиях первое слово так, чтобы появились знакомые фильмы. Оставьте ВТОРОЕ слово НЕТРОНУТЫМ!",
+                        ["Унесённые призраками, Джон Уик, Криминальное чтиво, Американский психопат, Форрест Гамп"]
+                    ),
+                    new Level(
+                        ["145","124","686","234","234","768","453","688","235","656","342"],
+                        "Расставьте числа в порядке их возрастания",
+                        3
                     )
                 );
                 break;
@@ -261,13 +345,14 @@ class Game {
         this.QuestionsIndexes =[];
         for (let i = 0; i < this.levels[this.currentLevel].length; i++) {
             this.QuestionsIndexes.push(i);
-         }
-         console.log( this.levels[this.currentLevel].length);
-         //перемешиваем индексы вопросов
-         shuffleArray(this.QuestionsIndexes);
+        }
+        console.log( this.levels[this.currentLevel].length);
+        //перемешиваем индексы вопросов
+        shuffleArray(this.QuestionsIndexes);
 
-         var timer = document.getElementById("Timer");
-         timer.innerText = 0;
+        var timer = document.getElementById("Timer");
+        timer.innerText = 0;
+
 
         this.answerClick = 0;
         this.showTask();
@@ -290,10 +375,52 @@ class Game {
         this.text_task.appendChild(this.annotation);
 
         setTimeout(() => {
-            this.addWordEventListeners();
+            if (this.currentLevel===1 || this.currentLevel===0) {this.addWordEventListeners();}
+            else {this.thirdLevel()}
         }, 3000);
-        //this.currentSublevel = 0; // Сбрасываем подуровень для нового уровня
-        // currentLevel++; // Переходим к следующему уровню
+}
+
+thirdLevel(){
+    let WordsIndexes = [];
+    for (let i = 0; i < this.levels[this.currentLevel][this.currentSublevel].answer.length; i++) {
+        WordsIndexes.push(i);
+    }
+    //console.log('длина текущих ответов',this.levels[this.currentLevel][this.currentSublevel].answer.length);
+    //перемешиваем индексы
+    shuffleArray(WordsIndexes);
+    if (this.levels[this.currentLevel][this.currentSublevel].answer.length>1){
+        var words = this.levels[this.currentLevel][this.currentSublevel].answer;
+    } else {
+        var words = this.levels[this.currentLevel][this.currentSublevel].answer[0].split(' '); //разделяем строку на массив
+    }
+    
+
+    var right_answer_words = this.levels[this.currentLevel][this.currentSublevel].right_answer;
+    this.root = document.querySelector(".main-back .task");
+    this.root.ondrop = dragDrop;
+    this.root.ondragover = dragOver;
+
+    for (let i = 0; i < words.length; i++) {
+        this.word[i] = document.createElement('span');
+        this.word[i].className = 'words';
+        if (this.levels[this.currentLevel][this.currentSublevel].answer.length>1){
+            var index = WordsIndexes[i];
+            this.word[i].innerText = words[index];
+        } else {
+            this.word[i].innerText = words[i];
+        }
+        this.word[i].style.marginRight = "5px";
+
+        //делаем слова переносимыми
+        this.word[i].setAttribute("draggable", "true");
+        this.word[i].ondragstart = dragStart;
+    
+        //создание индекса
+        this.word[i].id = i;
+
+        this.root.appendChild(this.word[i]);
+    }
+
 }
 
 addWordEventListeners() {
@@ -338,7 +465,7 @@ addWordEventListeners() {
 
         if (this.currentLevel===1) {
             this.word[i].innerText = words[i];
-            this.word[i].style.margin = "2px";
+            this.word[i].style.margin = "3px";
             // this.word[i].focus();
             // this.word[i].setAttribute('tabindex', '0');
             
@@ -517,6 +644,15 @@ deleteAllWords() {
                 })
                 this.root.appendChild(btn);
             })
+    }else if (this.currentLevel===2) {      
+            this.text_task.removeChild(this.annotation);
+            document.querySelector(".NameLevel").innerHTML = "Конец игры";
+            document.getElementById("firstLine").innerHTML = "";
+            messageElement.innerText = 'Вы прошли все уровни! Ваши баллы: '.toUpperCase()+totalScore;
+            messageElement.style.marginBottom = "15px";
+            svg.addEventListener("click", function() {
+                window.location.href = "score.html";
+            });
     };
     var playerName = localStorage.getItem("playerName");
     
@@ -605,6 +741,20 @@ stopTimer() {
         this.ScoreInLevel += 10 * this.coefficient;
     };
   }
+
+  updateOutput(textArray) {
+    var outputText = textArray.join(' ');
+
+    var answer = this.levels[this.currentLevel][this.currentSublevel].right_answer.join(' ').toUpperCase();
+    console.log(outputText,answer);
+    if (outputText === answer){
+        this.answerClick++
+        this.ScoreInLevel += 20 * this.coefficient;
+        this.stopTimer();
+        this.deleteAllWords();
+    }
+    //console.log(isSame,answer);
+}
 }
 
 
@@ -624,4 +774,34 @@ function Exit(){
 
 function CancelExit(){
     document.querySelector(".exitWindow").style.display = "none";
+}
+
+function dragStart(event) {
+    event.dataTransfer.setData("id", event.target.id);
+}
+
+// Разрешаем перетаскивание при наведении
+function dragOver(event) {
+    event.preventDefault();
+}
+
+function dragDrop(event) {
+    var data = event.dataTransfer.getData('id');
+    var draggedElement = document.getElementById(data);
+
+    //Находим элемент, над которым было произведено отпускание
+    var targetElement = document.elementFromPoint(event.clientX+10, event.clientY);
+    //console.log(event.clientX+5, event.clientY,targetElement.clientX,targetElement.clientY );
+    if (targetElement && targetElement.className === 'words') {
+        targetElement.parentNode.insertBefore(draggedElement, targetElement);
+    }
+    // Находим родительский элемент
+    var rootElement = document.querySelector('.main-back .task');
+
+    // Получаем все дочерние элементы
+    var childElements = Array.from(rootElement.children);
+
+    // Получаем текст каждого элемента и формируем массив строк
+    var textArray = childElements.map(element => element.textContent);
+    game.updateOutput(textArray);
 }

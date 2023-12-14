@@ -53,12 +53,12 @@ function help(){
     const li2 = document.createElement('li');
     li2.classList.add('helpLi', 'list-item');
     const text6 = document.createElement('span');
-    text6.textContent = 'Второй уровень';
+    text6.innerHTML = 'Второй уровень<br />Данное задание основывается на взаимодействии пользователя с клавиатурой: необходимо как можно скорее и без ошибок нажимать на соответствующие цифры на клавиатуре';
     li2.appendChild(text6);
     const li3 = document.createElement('li');
     li3.classList.add('helpLi', 'list-item');
     const text7 = document.createElement('span');
-    text7.textContent = 'Третий уровень';
+    text7.innerHTML = 'Третий уровень<br />Попробуйте повзаимодействовать со словами напрямую, перетаскивая их из одной части предложения в другую. Наводите перетаскиваемый элемент на слово, перед которым хотите поставить данный элемент';
     li3.appendChild(text7);
 
     listContainer.appendChild(li1);
