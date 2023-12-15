@@ -5,7 +5,7 @@ function help(){
         return; 
     }
     const container = document.createElement('div');
-    container.className = 'second_text help';
+    container.className = 'second-text help';
 
     // Создаем и добавляем SVG
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -67,5 +67,87 @@ function help(){
     textContainer.appendChild(listContainer);
     container.appendChild(textContainer);
 
+    if (ChangeColor){
+        container.style.color = "white";
+        container.style.backgroundColor = "#22212b";
+    }
+
     document.getElementById("game").appendChild(container);
 }
+
+
+
+let container = document.querySelector('.right-side');
+var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+svg.setAttribute('viewBox', '0 0 1024 1024');
+
+let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+path.setAttribute('d', 'M152 792l76-78 60 60-76 78zM470 958v-126h84v126h-84zM512 234q106 0 181 75t75 181-75 181-181 75-181-75-75-181 75-181 181-75zM854 448h128v86h-128v-86zM736 774l60-58 76 76-60 60zM872 190l-76 76-60-60 76-76zM554 24v126h-84v-126h84zM170 448v86h-128v-86h128zM288 206l-60 60-76-76 60-60z');
+svg.appendChild(path);
+
+svg.classList = "sun";
+
+container.insertBefore(svg, container.firstChild);
+
+
+var isStateOne = true;
+
+// Функция для изменения состояния
+function toggleState() {
+  if (isStateOne) {
+    // Изменяем атрибуты пути для второго состояния
+    path.setAttribute('d', 'M152 792l76-78 60 60-76 78zM470 958v-126h84v126h-84zM512 234q106 0 181 75t75 181-75 181-181 75-181-75-75-181 75-181 181-75zM854 448h128v86h-128v-86zM736 774l60-58 76 76-60 60zM872 190l-76 76-60-60 76-76zM554 24v126h-84v-126h84zM170 448v86h-128v-86h128zM288 206l-60 60-76-76 60-60z');
+    changeColorScheme();
+
+} else {
+    // Изменяем атрибуты пути для первого состояния
+    path.setAttribute('d', "M721.143 744.571c-20.571 3.429-41.714 5.143-62.857 5.143-212 0-384-172-384-384 0-72.571 21.143-143.429 59.429-204-152 45.143-260.571 184.571-260.571 350.286 0 201.714 164 365.714 365.714 365.714 110.286 0 213.714-50.286 282.286-133.143zM837.143 696c-71.429 154.857-228 254.857-398.286 254.857-241.714 0-438.857-197.143-438.857-438.857 0-237.143 185.714-429.714 422.286-438.286 16-0.571 29.143 8.571 34.857 22.286 6.286 14.286 2.286 30.857-8.571 41.143-65.143 59.429-101.143 140.571-101.143 228.571 0 171.429 139.429 310.857 310.857 310.857 45.143 0 88.571-9.714 130.286-29.143 14.286-6.286 30.286-3.429 41.143 7.429s13.714 27.429 7.429 41.143z");
+    changeColorScheme();
+
+}
+
+  // Инвертируем состояние
+  isStateOne = !isStateOne;
+}
+
+// Добавляем обработчик события click
+svg.addEventListener("click", toggleState);
+var ChangeColor = false;
+
+function changeColorScheme() {
+    // Получаем ссылку на элемент game-container
+    var gameContainer = document.getElementById("game");
+    var ctaButtons = document.querySelectorAll(".cta-btn");
+    
+
+
+    // Переключаем цветовую схему, добавляя или удаляя класс
+    if (gameContainer.classList.contains("dark-mode")) {
+      gameContainer.classList.remove("dark-mode");
+      ctaButtons.forEach(function(button) {
+            button.classList.remove("dark-mode");
+      });
+      ChangeColor = false;
+
+
+      document.querySelector(".header").classList.remove("dark-mode");
+      document.querySelector(".main-back").classList.remove("dark-mode");
+      document.querySelector(".second-text").classList.remove("dark-mode");
+      document.querySelector(".name-of-game").classList.remove("dark-mode");
+      document.querySelector(".name-of-game .text2").classList.remove("dark-mode");
+      document.getElementById("query_user").classList.remove("dark-mode");
+    } else {
+
+      ChangeColor = true;
+      document.querySelector(".header").classList.add("dark-mode");
+      document.querySelector(".main-back").classList.add("dark-mode");
+      document.querySelector(".second-text").classList.add("dark-mode");
+      document.getElementById("query_user").classList.add("dark-mode");
+      document.querySelector(".name-of-game").classList.add("dark-mode");
+      document.querySelector(".name-of-game .text2").classList.add("dark-mode");
+      ctaButtons.forEach(function(button) {
+            button.classList.add("dark-mode");
+      });
+      gameContainer.classList.add("dark-mode");
+    }
+  }

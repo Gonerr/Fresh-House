@@ -28,10 +28,13 @@ body {
     height: 90vh;
     display: flex;
     align-items: center;
-    background-size: cover;
+    background-color: cover;
     justify-content: center;
     background-image: url("../img/Фон_для_игры.png");
 }
+
+
+
 
 .main-back {
     width: 60%;
@@ -49,22 +52,22 @@ body {
     background-color: var(--dl-color-gray-white);
   }
 
-.second_text {
+.second-text {
     color: var(--dl-color-gray-black);
     font-style: normal;
     font-weight: 500;
     text-align: center;
   }
-.second_text.center{
+.second-text.center{
     font-size: 1.1em;
     text-align: center;
 }
-.second_text.help{
+.second-text.help{
   font-size: 0.9em;
   text-align: center;
 }
 
-.name_of_game {
+.name-of-game {
     color: rgb(61, 114, 160);
     height: auto;
     font-size: 8em;
@@ -75,8 +78,13 @@ body {
     text-transform: capitalize;
   }
 
-  .name_of_game.text2 {
+
+  .name-of-game.text2 {
     font-size: 110px;
+  }
+
+  .name-of-game.dark-mode{
+    color: rgb(255, 255, 255);
   }
 
   .container2 {
@@ -88,6 +96,19 @@ body {
     justify-content: space-between;
   }
 
+  .sun{
+    fill: var(--dl-color-primary-bluelight);
+    width: 40px;
+    height: 40px;
+    margin-right: var(--dl-space-space-fiveunits);
+  }
+  .sun:hover{
+    fill: black;
+    cursor: pointer;
+  }
+  .sun:active{
+    transform: scaleX(0.9) scaleY(0.9);
+  }
 
 .cta-btn.rating {
     width: 180px;
@@ -108,7 +129,7 @@ body {
     display: none;
     z-index: 100;
     position: fixed;
-    box-shadow: 10px 10px 10px 1px #606565;
+    box-shadow: 5px 5px 5px 1px #606565;
     margin-top: 14%;
     margin-left: 31%;
     align-items: center;
@@ -126,6 +147,13 @@ body {
     background-color: var(--dl-color-gray-white);
   }
   
+  #query_user.dark-mode{
+    color:white;
+    background-color: #22212b;
+    border-color: #22212b;
+    box-shadow: 5px 5px 5px 1px #000000;
+  }
+
   #close {
     fill: var(--dl-color-primary-dark_blue);
     width: 10%;
@@ -185,6 +213,31 @@ body {
       list-style-position: outside;
   }
 
+  
+
+/* Определение цветовой схемы для тёмного режима */
+.game-container.dark-mode {
+  background-image: url("../img/Темный_фон.png");
+}
+
+.header.dark-mode{
+  background-color: #22212b;
+  box-shadow: 5px 5px 10px 0px #000000;
+}
+
+.cta-btn.dark-mode{
+  box-shadow: black 2px 2px 5px 0px;
+  color: white;
+  border-color: rgb(28, 50, 97);
+  background-color: rgb(28, 50, 97);
+}
+.main-back.dark-mode{
+  background-color: #22212b;
+}
+
+.second-text.dark-mode{
+  color: white;
+}
 
   @media(max-width: 767px) {
     .name_of_game{
@@ -238,3 +291,4 @@ body {
     }
 
   }
+

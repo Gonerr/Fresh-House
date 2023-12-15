@@ -1,6 +1,8 @@
 
 .logo{
     position: relative;
+    background-color: white;
+    border-radius: 16px;
     width: 50px;
     height: 50px; 
     /* уменьшение в 4 раза */

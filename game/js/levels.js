@@ -99,7 +99,7 @@ class Game {
         new Level(
             ["Величественные горы уходят ввысь, касаясь голубого неба."],
             "Найдите в предложении все слова, начинающиеся на одинаковую букву. Для этого необходимо на клавиатуре нажать на соответствующую цифровую клавишу (номер слова в предложении)",
-            ["Величественные","горы","голубого","ввысь"],
+            ["Величественные","горы","голубого","ввысь,"],
             7
         )],
         [
@@ -649,7 +649,7 @@ deleteAllWords() {
             document.querySelector(".NameLevel").innerHTML = "Конец игры";
             document.getElementById("firstLine").innerHTML = "";
             messageElement.innerText = 'Вы прошли все уровни! Ваши баллы: '.toUpperCase()+totalScore;
-            messageElement.style.marginBottom = "15px";
+            messageElement.style.fontSize="2.3em";
             svg.addEventListener("click", function() {
                 window.location.href = "score.html";
             });
