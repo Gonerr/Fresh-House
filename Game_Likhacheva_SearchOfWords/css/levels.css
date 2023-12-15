@@ -1,0 +1,242 @@
+
+
+  body {
+    margin: 0;   /*чтобы убрать рамки*/
+    padding: 0;
+    font-style:normal;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.55;
+    color: var(--dl-color-gray-black);
+    background-color: var(--dl-color-gray-white);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    }
+
+    .game-container{
+        flex: 0 0 auto;
+        width: 100%;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        background-size: cover;
+        justify-content: center;
+        background-image: url("../img/Фон_для_игры.png");
+    }
+
+    .main-back {
+        flex: 0 0 auto;
+        width: 85%;
+        height: auto;
+        min-height: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: var(--dl-space-space-fourunits);
+        padding-left: var(--dl-space-space-fiveunits);
+        border-radius: var(--dl-radius-radius-radius24);
+        padding-right: var(--dl-space-space-fiveunits);
+        flex-direction: column;
+        padding-bottom: var(--dl-space-space-fiveunits);
+        background-color: #4382a6;
+      }
+
+      .choiceOfLevel{
+        width: 55%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .NameLevel.marg{
+        margin-bottom: var(--dl-space-space-fourunits);
+      }
+
+      .cta-btn.choice{
+        width: 50%;
+        height: 60px;
+        font-size: 1.5em;
+        margin-bottom: var(--dl-space-space-fourunits);
+      }
+
+
+
+      .content{
+        width: 100%;
+        height: 100%;
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .container2 {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+      }
+
+      .container3 {
+        flex: 0 0 auto;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        border-color: var(--dl-color-gray-white);
+        border-width: 7px;
+        border-radius: 50%;
+        justify-content: center;
+      }
+
+      #Timer{
+            color: var(--dl-color-gray-white);
+            font-size: 1.5em;
+            font-family: "Comic Sans MS";
+      }
+
+      .NameLevel {
+        color: var(--dl-color-gray-white);
+        width: auto;
+        height: auto;
+        font-size: 3em;
+        align-self: center;
+        text-align: center;
+        font-family: "Bristol";
+        line-height: 1;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      #NextLevel {
+        fill: var(--dl-color-gray-white);
+        width: 70px;
+        height: 70px;
+        display: none;
+      }
+      #NextLevel:hover{
+        cursor: pointer;
+        transform: scaleX(1.1) scaleY(1.1);
+      }
+
+      #NextLevel:active{
+        transform: scaleX(0.9) scaleY(0.9);
+      }
+
+      #ExitLevel {
+        fill: var(--dl-color-gray-white);
+        width: 60px;
+        height: 70px;
+      }
+      #ExitLevel:hover{
+        cursor: pointer;
+        transform: scaleX(1.1) scaleY(1.1);
+      }
+
+      #ExitLevel:active{
+        transform: scaleX(0.9) scaleY(0.9);
+      }
+      #annotation {
+        width: 80%;
+        text-align: center;
+        margin-bottom: var(--dl-space-space-tripleunit);
+        color: var(--dl-color-gray-white);
+        font-size: 1.2em;
+        font-weight: 400;
+      }
+
+      #firstLine {
+        font-style: italic;
+        display: block;
+      }
+
+      #secondLine {
+          display: block; /* Делаем каждую строки блочным элементом */
+      }
+
+      .main-back.task {
+        width: 100%;
+        height: 60%;
+        min-height: 200px;
+        flex-wrap: wrap;
+        padding-top: 25px;
+        padding-left: var(--dl-space-space-tenunits);
+        padding-right: var(--dl-space-space-tenunits);
+        flex-direction: row;
+        padding-bottom: 25px;
+        
+        background-color: var(--dl-color-gray-white);
+      }
+
+      .words{
+            color: #598bb1;
+            height: 70px;
+            display: block;
+            font-size: 3em;
+            font-family: "Bristol";
+            margin-right: var(--dl-space-space-tripleunit);
+            text-align: center;
+      }
+      .words:hover {
+        cursor: pointer;
+    }
+      .cta-btn.start {
+        width:350px;
+        height: 70px;
+        font-size: 2em;
+    }
+      .cta-btn:active{
+        transform: scaleX(0.9) scaleY(0.9);
+    }
+
+.exitWindow{
+  flex: 0 0 auto;
+  width: 500px;
+  height: 190px;
+  display: none;
+  padding: var(--dl-space-space-tripleunit);
+  z-index: 100;
+  position: fixed;
+  box-shadow: 10px 10px 10px 1px #606565;
+  margin-top: 3%;
+  align-items: center;
+  border-color: var(--dl-color-primary-dark_blue);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: var(--dl-radius-radius-radius24);
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--dl-color-gray-white);
+}
+.text9 {
+  color: var(--dl-color-gray-black);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.2em;
+  text-align: center;
+}
+.container5 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cta-btn.cancel{
+  width: 160px;
+  height: 40px;
+  padding: var(--dl-space-space-unit) 0;
+  margin-right: var(--dl-space-space-fiveunits);
+}
+.cta-btn.ok{
+  width: 160px;
+  height: 40px;
+  padding: var(--dl-space-space-unit) 0;
+}

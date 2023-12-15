@@ -1,0 +1,294 @@
+
+@font-face {
+  font-family: 'Bristol'; 
+  src: local('Bristol'),
+    url(../fonts/Bristol.otf); 
+}
+
+body {
+    margin: 0;   /*чтобы убрать рамки*/
+    padding: 0;
+    font-style:normal;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.55;
+    color: var(--dl-color-gray-black);
+    background-color: var(--dl-color-gray-white);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 18px;
+    }
+
+.game-container{
+    flex: 0 0 auto;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-image: url("../img/Фон_для_игры.png");
+}
+
+
+
+
+.main-back {
+    width: 60%;
+    height: 70%;
+    max-height: 600px;
+    display: flex;
+    align-items: center;
+    padding-top: 35px;
+    padding-left: var(--dl-space-space-tenunits);
+    border-radius: var(--dl-radius-radius-radius24);
+    padding-right: var(--dl-space-space-tenunits);
+    flex-direction: column;
+    padding-bottom: 35px;
+    justify-content: space-between;
+    background-color: var(--dl-color-gray-white);
+  }
+
+.second-text {
+    color: var(--dl-color-gray-black);
+    font-style: normal;
+    font-weight: 500;
+    text-align: center;
+  }
+.second-text.center{
+    font-size: 1.1em;
+    text-align: center;
+}
+.second-text.help{
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.name-of-game {
+    color: rgb(61, 114, 160);
+    height: auto;
+    font-size: 8em;
+    text-align: center;
+    font-family: "Bristol";
+    line-height: 0.9;
+    letter-spacing: 8px;
+    text-transform: capitalize;
+  }
+
+
+  .name-of-game.text2 {
+    font-size: 110px;
+  }
+
+  .name-of-game.dark-mode{
+    color: rgb(255, 255, 255);
+  }
+
+  .container2 {
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sun{
+    fill: var(--dl-color-primary-bluelight);
+    width: 40px;
+    height: 40px;
+    margin-right: var(--dl-space-space-fiveunits);
+  }
+  .sun:hover{
+    fill: black;
+    cursor: pointer;
+  }
+  .sun:active{
+    transform: scaleX(0.9) scaleY(0.9);
+  }
+
+.cta-btn.rating {
+    width: 180px;
+    margin-right: var(--dl-space-space-fiveunits);
+    padding: 5px;
+}
+
+.cta-btn.start-game {
+    width: 180px;
+    padding: 5px;
+    margin-right: 0;
+}
+
+  #query_user {
+    flex: 0 0 auto;
+    width: 500px;
+    height: 230px;
+    display: none;
+    z-index: 100;
+    position: fixed;
+    box-shadow: 5px 5px 5px 1px #606565;
+    margin-top: 14%;
+    margin-left: 31%;
+    align-items: center;
+
+    padding-top: var(--dl-space-space-tripleunit);
+    border-color: var(--dl-color-primary-dark_blue);
+    border-style: solid;
+    border-width: 1px;
+    padding-left: var(--dl-space-space-tripleunit);
+    border-radius: var(--dl-radius-radius-radius24);
+    padding-right: var(--dl-space-space-tripleunit);
+    flex-direction: column;
+    padding-bottom: var(--dl-space-space-fiveunits);
+    justify-content: space-between;
+    background-color: var(--dl-color-gray-white);
+  }
+  
+  #query_user.dark-mode{
+    color:white;
+    background-color: #313136;
+    border-color: #313136;
+    box-shadow: 5px 5px 5px 1px #000000;
+  }
+
+  #close {
+    fill: var(--dl-color-primary-dark_blue);
+    width: 10%;
+    height: 20%;
+    align-self: flex-end;
+  }
+
+  #close:active {
+    transform: scaleX(0.9) scaleY(0.9);
+}
+.cta-btn:active{
+    transform: scaleX(0.9) scaleY(0.9);
+}
+  .container4 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .textinput {
+    border-color: #49589e;
+    border-width: 0.5px;
+    margin-right: var(--dl-space-space-doubleunit);
+    border-radius: var(--dl-radius-radius-radius8);
+  }
+
+  .help {
+    width: 70%;
+    height: auto;
+    padding: 14px var(--dl-space-space-fiveunits) 40px ;
+    z-index: 100;
+    position: fixed;
+    align-self: center;
+    box-shadow: 10px 10px 10px 1px #606565;
+    border-color: var(--dl-color-primary-dark_blue);
+    border-style: solid;
+    border-radius: var(--dl-radius-radius-radius24);
+    background-color: var(--dl-color-gray-white);
+  }
+
+  .Close{
+      fill: var(--dl-color-primary-dark_blue);
+      width: 30px;
+      height: 30px;
+      margin-left: 99%;
+  }
+  .Close:active {
+    transform: scaleX(0.9) scaleY(0.9);
+}
+
+  .helpLi{
+      width: 100%;
+      text-align: center;
+      list-style-type: disc;
+      list-style-image: none;
+      list-style-position: outside;
+  }
+
+  
+
+/* Определение цветовой схемы для тёмного режима */
+.game-container.dark-mode {
+  background-image: url("../img/Темный_фон.png");
+}
+
+.header.dark-mode{
+  background-color: #313136;
+  box-shadow: 5px 5px 10px 0px #000000;
+}
+
+.cta-btn.dark-mode{
+  box-shadow: black 2px 2px 5px 0px;
+  color: white;
+  border-color: rgb(28, 50, 97);
+  background-color: rgb(28, 50, 97);
+}
+.main-back.dark-mode{
+  background-color: #313136;
+}
+
+.second-text.dark-mode{
+  color: white;
+}
+
+  @media(max-width: 767px) {
+    .name_of_game{
+      letter-spacing: 0;
+      font-size: 100px;
+    }
+
+    .name_of_game.text2{
+      letter-spacing: 0;
+      font-size: 90px;
+    }
+
+    .container2 {
+      flex-direction: column;
+    }
+
+    .cta-btn.rating{
+      margin-right: 0;
+      margin-bottom: var(--dl-space-space-tripleunit);
+    }
+
+  }
+
+
+  @media(max-width: 479px) {
+    .main-back {
+      height: 40%;
+      padding-top: 35px;
+      padding-bottom: 35px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .name_of_game{
+      letter-spacing: 0;
+      font-size: 70px;
+    }
+    .name_of_game.text2{
+      letter-spacing: 0;
+      font-size: 60px;
+    }
+  
+
+    .container2 {
+      flex-direction: column;
+    }
+
+    .cta-btn.rating{
+      margin-right: 0;
+      margin-bottom: var(--dl-space-space-tripleunit);
+    }
+
+  }
+
