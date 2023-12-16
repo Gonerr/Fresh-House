@@ -1,5 +1,5 @@
 var helpButtonClicked = false;
-
+var ChangeColor = false;
 function help(){
     if (helpButtonClicked) {
         return; 
