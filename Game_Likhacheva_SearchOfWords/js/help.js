@@ -67,8 +67,6 @@ function help(){
     textContainer.appendChild(listContainer);
     container.appendChild(textContainer);
 
-
-    console.log(ChangeColor);
     if (ChangeColor){
         container.style.color = "white";
         container.style.backgroundColor = "#22212b";
@@ -157,7 +155,7 @@ function changeColorScheme() {
       if (document.querySelector(".name-of-game")) {document.querySelector(".name-of-game").classList.remove("dark-mode");
       document.querySelector(".name-of-game .text2").classList.remove("dark-mode");
       document.getElementById("query_user").classList.remove("dark-mode");}
-      console.log('тута',ChangeColor);
+     // console.log('тута',ChangeColor);
        // Сохраняем выбранную тему в Local Storage
     localStorage.setItem("colorScheme", "light");
     } else {
@@ -178,7 +176,7 @@ function changeColorScheme() {
         text.classList.add("dark-mode");
       });
       gameContainer.classList.add("dark-mode");
-      console.log('тута',ChangeColor);
+     // console.log('тута',ChangeColor);
       // Сохраняем выбранную тему в Local Storage
     localStorage.setItem("colorScheme", "dark");
     }
