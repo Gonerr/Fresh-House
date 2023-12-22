@@ -3,6 +3,7 @@
     justify-content: flex-start;
     height: auto;
     min-height: 70%;
+    max-height: 100%;
     padding-left: var(--dl-space-space-tripleunit);
     padding-right: var(--dl-space-space-tripleunit);
   }
@@ -79,4 +80,15 @@
   #Name {
     display: block;
     margin-bottom: 5px;
+  }
+
+  @media(max-width: 785px) {
+
+    .cta-btn.choice {
+      width: auto;
+    }
+    .game-container {
+      height: auto;
+      min-height: 90vh;
+    }
   }

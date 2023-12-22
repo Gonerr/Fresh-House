@@ -240,12 +240,12 @@ body {
 }
 
   @media(max-width: 767px) {
-    .name_of_game{
+    .name-of-game{
       letter-spacing: 0;
       font-size: 100px;
     }
 
-    .name_of_game.text2{
+    .name-of-game.text2{
       letter-spacing: 0;
       font-size: 90px;
     }
@@ -271,11 +271,11 @@ body {
       padding-right: 5px;
     }
 
-    .name_of_game{
+    .name-of-game{
       letter-spacing: 0;
       font-size: 70px;
     }
-    .name_of_game.text2{
+    .name-of-game.text2{
       letter-spacing: 0;
       font-size: 60px;
     }

@@ -240,3 +240,25 @@
   height: 40px;
   padding: var(--dl-space-space-unit) 0;
 }
+
+
+@media(max-width: 785px) {
+
+  .cta-btn.choice {
+    width: auto;
+  }
+  .main-back {
+    max-height: 100%;
+  }
+  .game-container {
+    height: auto;
+    min-height: 90vh;
+  }
+}
+
+@media(max-width: 479px) {
+
+  .cta-btn.choice {
+    width: auto;
+  }
+}

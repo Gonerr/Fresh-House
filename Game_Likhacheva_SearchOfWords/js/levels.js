@@ -1,21 +1,21 @@
 class Level {
-        constructor(answer, annotation, right_answer,length_) {
-        this.answer =  answer.map(word => word.toUpperCase());
-        this.annotation = annotation;
-        if (right_answer === 0) {
-            this.right_answer = [...answer].sort((a, b) => a.localeCompare(b)); //в алфавитном порядке
-        } else if (right_answer === 1){
-            this.right_answer = [...answer].sort((a, b) => b.localeCompare(a)); //в обратном порядке
-        } else if (right_answer === 2){
-            this.right_answer = answer.slice().sort((a, b) => b - a); //числа по убыванию
-        } else if (right_answer === 3){
-            this.right_answer = answer.slice().sort((a, b) => a - b); //числа по убыванию
+        constructor(ans, annot, right_ans,len) {
+        this.answer =  ans.map(word => word.toUpperCase());
+        this.annotation = annot;
+        if (right_ans === 0) {
+            this.right_answer = [...ans].sort((a, b) => a.localeCompare(b)); //в алфавитном порядке
+        } else if (right_ans === 1){
+            this.right_answer = [...ans].sort((a, b) => b.localeCompare(a)); //в обратном порядке
+        } else if (right_ans === 2){
+            this.right_answer = ans.slice().sort((a, b) => b - a); //числа по убыванию
+        } else if (right_ans === 3){
+            this.right_answer = ans.slice().sort((a, b) => a - b); //числа по возрастанию
         } else {
-            this.right_answer =  right_answer.map(word => word.toUpperCase());
+            this.right_answer =  right_ans.map(word => word.toUpperCase());
         };
 
-         if (length_> 0) {
-            this.length_=length_;
+         if (len > 0) {
+            this.length_=len;
         } else {
             this.length_ = this.answer.length;
         };
@@ -40,12 +40,6 @@ class Game {
         this.currentSublevel = 0;
         this.num = 0;
         this.indexes;
-
-        this.lowertime;
-        this.midtime;
-        this.uppertime;
-        this.coefficient;
-        this.currentLevelOfDifficult;
 
         this.LevelAnnotation = ['Нажимайте на слова в нужном порядке как можно быстрее!',
         'Выберите в предложении необходимые слова, нажимая на цифровые кнопки клавиатуры. Будьте внимательны: на каждом уровне сложности ограниченное число допустимых ошибок',
@@ -243,14 +237,14 @@ class Game {
                 );
                 this.levels[2].push(
                     new Level(
-                        ["Сегодня","утром","заботливый","кот","смотрел","своими","глазами","на","весело","играющих","маленьких","соседских","детей."],
+                        ["заботливый","кот","смотрел","своими","глазами","на","весело","играющих","маленьких","соседских","детей."],
                         "Переставьте слова в предложении так, чтобы получилась правильная структура, учитывая их части речи. ",
-                        ["Сегодня утром, заботливый кот смотрел своими глазами на весело играющих маленьких соседских детей."]
+                        ["заботливый кот смотрел своими глазами на весело играющих маленьких соседских детей."]
                     ),
                     new Level(
                         ["Вчера вечером мы сидели в парк и говорили как птицы летят над прудом. Затем мы шли на лавке и видели о наших планах на будущее."],
                         "Переставьте глаголы так, чтобы получилось правильно составленное предложение.",
-                        ["Вчера вечером мы сидели в парк и говорили как птицы летят над прудом. Затем мы шли на лавке и видели о наших планах на будущее."]
+                        ["Вчера вечером мы шли в парк и видели как птицы летят над прудом. Затем мы сидели на лавке и говорили о наших планах на будущее."]
                     ),
                     new Level(
                         ["Криминальное призраками, Форрест Уик, Унесённые чтиво, Джон психопат, Американский Гамп"],
@@ -315,6 +309,11 @@ class Game {
                         ["145","124","686","234","234","768","453","688","235","656","342"],
                         "Расставьте числа в порядке их возрастания",
                         3
+                    ),
+                    new Level(
+                        ["145","124","686","234","234","768","453","688","235","656","342"],
+                        "Расставьте числа в порядке их убывания",
+                        2
                     )
                 );
                 break;
@@ -362,7 +361,6 @@ class Game {
         
 }
 
-
     showTask() {
         //console.log('Перемешанные индексы',this.QuestionsIndexes);
         this.currentSublevel = this.QuestionsIndexes[this.num]
@@ -380,50 +378,65 @@ class Game {
         }, 3000);
 }
 
-thirdLevel(){
-    let WordsIndexes = [];
-    for (let i = 0; i < this.levels[this.currentLevel][this.currentSublevel].answer.length; i++) {
-        WordsIndexes.push(i);
-    }
-    //console.log('длина текущих ответов',this.levels[this.currentLevel][this.currentSublevel].answer.length);
-    //перемешиваем индексы
-    shuffleArray(WordsIndexes);
-    if (this.levels[this.currentLevel][this.currentSublevel].answer.length>1){
-        var words = this.levels[this.currentLevel][this.currentSublevel].answer;
-    } else {
-        var words = this.levels[this.currentLevel][this.currentSublevel].answer[0].split(' '); //разделяем строку на массив
-    }
-    
-
-    var right_answer_words = this.levels[this.currentLevel][this.currentSublevel].right_answer;
-    this.root = document.querySelector(".main-back .task");
-    this.root.ondrop = dragDrop;
-    this.root.ondragover = dragOver;
-
-    for (let i = 0; i < words.length; i++) {
-        this.word[i] = document.createElement('span');
-        this.word[i].className = 'words';
-        if (this.levels[this.currentLevel][this.currentSublevel].answer.length>1){
-            var index = WordsIndexes[i];
-            this.word[i].innerText = words[index];
-        } else {
-            this.word[i].innerText = words[i];
+    //для третьего уровня (генерация заданий)
+    thirdLevel(){
+        let WordsIndexes = [];
+        for (let i = 0; i < this.levels[this.currentLevel][this.currentSublevel].answer.length; i++) {
+            WordsIndexes.push(i);
         }
-        this.word[i].style.marginRight = "5px";
+        //console.log('длина текущих ответов',this.levels[this.currentLevel][this.currentSublevel].answer.length);
+        //перемешиваем индексы
+        shuffleArray(WordsIndexes);
+        if (this.levels[this.currentLevel][this.currentSublevel].answer.length>1){
+            var words = this.levels[this.currentLevel][this.currentSublevel].answer;
+        } else {
+            var words = this.levels[this.currentLevel][this.currentSublevel].answer[0].split(' '); //разделяем строку на массив
+        }
+        
 
-        //делаем слова переносимыми
-        this.word[i].setAttribute("draggable", "true");
-        this.word[i].ondragstart = dragStart;
-    
-        //создание индекса
-        this.word[i].id = i;
+        var right_answer_words = this.levels[this.currentLevel][this.currentSublevel].right_answer;
+        this.root = document.querySelector(".main-back .task");
+        this.root.ondrop = dragDrop;
+        this.root.ondragover = dragOver;
 
-        this.root.appendChild(this.word[i]);
-    }
+        for (let i = 0; i < words.length; i++) {
+            this.word[i] = document.createElement('span');
+            this.word[i].className = 'words';
+            if (this.levels[this.currentLevel][this.currentSublevel].answer.length>1){
+                var index = WordsIndexes[i];
+                this.word[i].innerText = words[index];
+            } else {
+                this.word[i].innerText = words[i];
+            }
+            this.word[i].style.marginRight = "5px";
 
+            //делаем слова переносимыми
+            this.word[i].setAttribute("draggable", "true");
+            this.word[i].ondragstart = dragStart;
+        
+            //создание индекса
+            this.word[i].id = i;
+
+            this.root.appendChild(this.word[i]);
+        }
 }
 
-addWordEventListeners() {
+    //функция для третьего уровня, сверяющая правильный ответ и то, что пишет пользователь
+    updateOutput(textArray) {
+        var outputText = textArray.join(' ');
+    
+        var answer = this.levels[this.currentLevel][this.currentSublevel].right_answer.join(' ').toUpperCase();
+        console.log(outputText,answer);
+        if (outputText === answer){
+            this.answerClick++
+            this.ScoreInLevel += 50 * this.coefficient;
+            this.stopTimer();
+            this.deleteAllWords();
+        }
+        //console.log(isSame,answer);
+}
+
+    addWordEventListeners() {
     let WordsIndexes = [];
     for (let i = 0; i < this.levels[this.currentLevel][this.currentSublevel].answer.length; i++) {
         WordsIndexes.push(i);
@@ -526,11 +539,12 @@ addWordEventListeners() {
                     if (this.indexes.includes(pressedNumber-1)){
                         this.word[pressedNumber-1].style.color = 'green';
                         this.answerClick++;
-                        this.ScoreInLevel += 10 * this.coefficient;
+                        
                         //console.log(this.answerClick);
                         if (this.answerClick == this.levels[this.currentLevel][this.currentSublevel].right_answer.length) {
-                             this.stopTimer();
-                             this.deleteAllWords();
+                            this.ScoreInLevel += 35 * this.coefficient; 
+                            this.stopTimer();
+                            this.deleteAllWords();
                     }} else {
                         this.word[pressedNumber-1].style.color = 'red';
                         wrong++;
@@ -549,32 +563,18 @@ addWordEventListeners() {
     }
 }
 
-
-
-
-//   else if (this.currentLevel===1){
-//     var isCorrect = this.levels[this.currentLevel][this.currentSublevel].right_answer.includes(this.word[i].innerText);
-//     console.log('Все круто', this.levels[this.currentLevel][this.currentSublevel].right_answer.includes(this.word[i].innerText),this.word[i].innerText,
-//     this.levels[this.currentLevel][this.currentSublevel].right_answer,
-//     answered[index]);
-// }
-
-
-
-
-
-
-
-  getScoreAndDifficulty() {
+    //Подсчёт очков и установка уровня сложности
+    getScoreAndDifficulty() {
     let totalScore = this.Score.reduce((acc, row) => acc + row.reduce((sum, val) => sum + val, 0), 0);
     let difficulty = this.currentLevelOfDifficult;
-    console.log(totalScore,difficulty);
+    //console.log(totalScore,difficulty);
     return {
       totalScore,difficulty
     };
-  }
-
-deleteAllWords() {
+}
+    
+    //удаление всех элементов перед новым уровнем
+    deleteAllWords() {
     // Удаляем все элементы внутри root
     while (this.root.firstChild) {
         this.root.removeChild(this.root.firstChild);
@@ -670,15 +670,16 @@ deleteAllWords() {
       // Сериализация объекта в строку JSON и сохранение в Local Storage
       localStorage.setItem("userData", JSON.stringify(userData));
     
-  }
+}
 
-
-  NextLevel(){
+    //следующий уровень
+    NextLevel(){
     this.answerClick = 0;
     this.showTask();
-  }
+}
 
-  NextTask() {
+    //следующее задание в уровне
+    NextTask() {
     this.text_task.removeChild(this.annotation);
     this.answerClick = 0;
     this.showTask();
@@ -688,15 +689,13 @@ deleteAllWords() {
         this.startTimer();
     }, 3000);
   }
-  
 
-  startTimer() {
+    startTimer() {
     this.seconds = 0;
     this.timerInterval = setInterval(this.updateTimer.bind(this), 1000);
-  }
+}
 
-
-  updateTimer() {
+    updateTimer() {
     this.seconds++;
     var timer = document.getElementById("Timer");
     timer.innerText = this.seconds;
@@ -726,7 +725,7 @@ deleteAllWords() {
     };
 }
 
-stopTimer() {
+    stopTimer() {
     clearInterval(this.timerInterval);
     var Clock = document.querySelector(".container3");
     Clock.style.borderColor = "white";
@@ -740,20 +739,6 @@ stopTimer() {
     } else if (this.seconds <= this.midtime) {
         this.ScoreInLevel += 10 * this.coefficient;
     };
-  }
-
-  updateOutput(textArray) {
-    var outputText = textArray.join(' ');
-
-    var answer = this.levels[this.currentLevel][this.currentSublevel].right_answer.join(' ').toUpperCase();
-    console.log(outputText,answer);
-    if (outputText === answer){
-        this.answerClick++
-        this.ScoreInLevel += 20 * this.coefficient;
-        this.stopTimer();
-        this.deleteAllWords();
-    }
-    //console.log(isSame,answer);
 }
 }
 
@@ -790,17 +775,15 @@ function dragDrop(event) {
     var draggedElement = document.getElementById(data);
 
     //Находим элемент, над которым было произведено отпускание
-    var targetElement = document.elementFromPoint(event.clientX+10, event.clientY);
-    //console.log(event.clientX+5, event.clientY,targetElement.clientX,targetElement.clientY );
+    var targetElement = document.elementFromPoint(event.clientX, event.clientY);
     if (targetElement && targetElement.className === 'words') {
         targetElement.parentNode.insertBefore(draggedElement, targetElement);
     }
+
     // Находим родительский элемент
     var rootElement = document.querySelector('.main-back .task');
-
     // Получаем все дочерние элементы
     var childElements = Array.from(rootElement.children);
-
     // Получаем текст каждого элемента и формируем массив строк
     var textArray = childElements.map(element => element.textContent);
     game.updateOutput(textArray);
